@@ -1,6 +1,7 @@
 /**
  * Linha do tempo histórica e médica — Amamentação e Arte
  *
+ * Campo `movimento`: id definido em data/movimentos.js.
  * Tipos aceitos: 'arte' | 'historia' | 'medicina' | 'sociedade' | 'religiao' | 'saude-publica'
  *
  * REGRA EDITORIAL
@@ -20,7 +21,7 @@ window.AcervoData = window.AcervoData || {};
 window.AcervoData.timeline = [
   {
     id: 'evento-01',
-    periodo: 'antiguidade',
+    movimento: 'antiguidade',
     data: 'Século II d.C.',
     titulo: 'Sorano de Éfeso escreve sobre amamentação e escolha de amas',
     tipo: 'medicina',
@@ -32,7 +33,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-02',
-    periodo: 'idade-media',
+    movimento: 'idade-media',
     data: 'Séculos XIII–XV',
     titulo: 'Difusão da iconografia da Virgo lactans na Europa',
     tipo: 'arte',
@@ -44,7 +45,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-03',
-    periodo: 'renascimento',
+    movimento: 'renascimento',
     data: '1472',
     titulo: 'Publicação de um dos primeiros tratados impressos sobre doenças das crianças',
     tipo: 'medicina',
@@ -56,7 +57,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-04',
-    periodo: 'idade-moderna',
+    movimento: 'rococo-neoclassicismo',
     data: '1748',
     titulo: 'Crítica médica ao sistema de amas de leite na Inglaterra',
     tipo: 'medicina',
@@ -68,7 +69,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-05',
-    periodo: 'idade-moderna',
+    movimento: 'rococo-neoclassicismo',
     data: '1762',
     titulo: '"Emílio" e a defesa filosófica da amamentação materna',
     tipo: 'sociedade',
@@ -80,7 +81,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-06',
-    periodo: 'seculo-xix',
+    movimento: 'romantismo-realismo',
     data: 'Século XIX',
     titulo: 'Amas de leite escravizadas e libertas no Brasil',
     tipo: 'sociedade',
@@ -92,7 +93,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-07',
-    periodo: 'seculo-xix',
+    movimento: 'romantismo-realismo',
     data: 'Década de 1860',
     titulo: 'Primeiros substitutos industriais do leite materno',
     tipo: 'medicina',
@@ -104,7 +105,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-08',
-    periodo: 'seculo-xix',
+    movimento: 'romantismo-realismo',
     data: 'Fim do século XIX',
     titulo: 'Consultas de lactentes e serviços de distribuição de leite',
     tipo: 'saude-publica',
@@ -116,7 +117,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-09',
-    periodo: 'seculo-xx',
+    movimento: 'modernismo',
     data: '1956',
     titulo: 'Organização de grupos de apoio entre mulheres',
     tipo: 'sociedade',
@@ -128,7 +129,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-10',
-    periodo: 'seculo-xx',
+    movimento: 'modernismo',
     data: '1981',
     titulo: 'Código Internacional de Comercialização de Substitutos do Leite Materno',
     tipo: 'saude-publica',
@@ -142,7 +143,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-11',
-    periodo: 'seculo-xx',
+    movimento: 'modernismo',
     data: 'Década de 1980',
     titulo: 'Programa nacional de incentivo ao aleitamento materno no Brasil',
     tipo: 'saude-publica',
@@ -154,7 +155,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-12',
-    periodo: 'seculo-xx',
+    movimento: 'modernismo',
     data: '1990',
     titulo: 'Declaração de Innocenti',
     tipo: 'saude-publica',
@@ -166,7 +167,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-13',
-    periodo: 'seculo-xx',
+    movimento: 'modernismo',
     data: '1991',
     titulo: 'Iniciativa Hospital Amigo da Criança',
     tipo: 'saude-publica',
@@ -178,7 +179,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-14',
-    periodo: 'contemporaneidade',
+    movimento: 'contemporaneidade',
     data: '2001',
     titulo: 'Recomendação de aleitamento materno exclusivo até os seis meses',
     tipo: 'medicina',
@@ -190,7 +191,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-15',
-    periodo: 'contemporaneidade',
+    movimento: 'contemporaneidade',
     data: '2016',
     titulo: 'Série sobre amamentação em periódico médico internacional',
     tipo: 'medicina',

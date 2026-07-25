@@ -25,33 +25,51 @@ PALETAS = {
     "antiguidade": ("#DCD5C7", "#C4BBA9", "#6B6255"),
     "idade-media": ("#D6CFC4", "#BEB5A6", "#665D50"),
     "renascimento": ("#DED6C9", "#C6BCAB", "#6A6153"),
-    "idade-moderna": ("#D9D4CB", "#C0B9AC", "#655E53"),
-    "seculo-xix": ("#D5D2CC", "#BBB6AE", "#615D57"),
-    "seculo-xx": ("#D2D0CC", "#B7B4AF", "#5E5B57"),
+    "barroco": ("#D3C9B8", "#B9AD98", "#5F5749"),
+    "rococo-neoclassicismo": ("#D9D4CB", "#C0B9AC", "#655E53"),
+    "romantismo-realismo": ("#D5D2CC", "#BBB6AE", "#615D57"),
+    "impressionismo": ("#DBD8D1", "#C1BDB3", "#63605A"),
+    "modernismo": ("#D2D0CC", "#B7B4AF", "#5E5B57"),
     "contemporaneidade": ("#D8D7D4", "#BEBCB8", "#605E5B"),
     "editorial": ("#CFC7B8", "#B6AC99", "#5C554A"),
 }
 
-# id, período (paleta), largura, altura
+# id, movimento (paleta), largura, altura — ordem do percurso
 OBRAS = [
     ("obra-01", "antiguidade", 1000, 1250),
     ("obra-02", "antiguidade", 900, 1200),
     ("obra-03", "idade-media", 960, 1280),
     ("obra-04", "idade-media", 1280, 960),
     ("obra-05", "renascimento", 1000, 1250),
-    ("obra-06", "idade-moderna", 1280, 960),
-    ("obra-07", "idade-moderna", 1100, 1100),
-    ("obra-08", "seculo-xix", 1000, 1250),
-    ("obra-09", "seculo-xx", 1280, 960),
-    ("obra-10", "seculo-xx", 1100, 1100),
-    ("obra-11", "seculo-xx", 1000, 1250),
+    ("obra-13", "renascimento", 940, 1200),
+    ("obra-14", "renascimento", 1000, 1240),
+    ("obra-15", "renascimento", 1180, 1000),
+    ("obra-16", "renascimento", 1300, 1000),
+    ("obra-17", "barroco", 1320, 1000),
+    ("obra-18", "barroco", 1000, 1400),
+    ("obra-19", "barroco", 1000, 1240),
+    ("obra-06", "rococo-neoclassicismo", 1280, 960),
+    ("obra-20", "rococo-neoclassicismo", 1300, 1000),
+    ("obra-21", "rococo-neoclassicismo", 1000, 1220),
+    ("obra-07", "rococo-neoclassicismo", 1100, 1100),
+    ("obra-22", "romantismo-realismo", 1280, 1000),
+    ("obra-09", "romantismo-realismo", 1280, 960),
+    ("obra-08", "impressionismo", 1000, 1250),
+    ("obra-24", "impressionismo", 1000, 1300),
+    ("obra-23", "impressionismo", 1300, 1000),
+    ("obra-25", "impressionismo", 1040, 1240),
+    ("obra-10", "modernismo", 1100, 1100),
+    ("obra-26", "modernismo", 1060, 1180),
+    ("obra-27", "modernismo", 1240, 1000),
+    ("obra-28", "modernismo", 1280, 980),
+    ("obra-11", "modernismo", 1000, 1250),
     ("obra-12", "contemporaneidade", 1400, 933),
 ]
 
 # id, paleta, largura, altura, legenda
 AMBIENTES = [
     ("hero", "editorial", 1800, 1200, "Obra de abertura a definir"),
-    ("faixa-medicina", "seculo-xix", 1800, 900, "Imagem de apoio a definir"),
+    ("faixa-medicina", "romantismo-realismo", 1800, 900, "Imagem de apoio a definir"),
     ("faixa-contemporanea", "contemporaneidade", 1800, 900, "Imagem de apoio a definir"),
 ]
 

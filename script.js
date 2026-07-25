@@ -2,12 +2,12 @@
    Amamentação e Arte — comportamento da interface
 
    Este arquivo não contém conteúdo editorial. Todo texto sobre obras,
-   períodos, linha do tempo e referências vive em data/*.js.
+   movimentos artísticos, linha do tempo e referências vive em data/*.js.
 
    Módulos internos
    1. Utilidades
    2. Cabeçalho e navegação
-   3. Percurso histórico
+   3. Percurso por movimentos artísticos
    4. Linha do tempo
    5. Destaques
    6. Acervo: filtros, busca e galeria
@@ -22,11 +22,11 @@
 
   var dados = window.AcervoData || {};
   var OBRAS = dados.obras || [];
-  var PERIODOS = dados.periodos || [];
+  var MOVIMENTOS = dados.movimentos || [];
   var TIMELINE = dados.timeline || [];
   var TIPOS = dados.tiposTimeline || [];
   var REFERENCIAS = dados.referencias || [];
-  var CATEGORIAS = dados.categorias || { periodos: [], temas: [], linguagens: [] };
+  var CATEGORIAS = dados.categorias || { movimentos: [], temas: [], linguagens: [] };
 
   /* ========================== 1. UTILIDADES ============================ */
 
@@ -47,8 +47,8 @@
     return null;
   }
 
-  function rotuloPeriodo(id) {
-    var lista = CATEGORIAS.periodos || [];
+  function rotuloMovimento(id) {
+    var lista = CATEGORIAS.movimentos || [];
     for (var i = 0; i < lista.length; i++) {
       if (lista[i].id === id) return lista[i].rotulo;
     }
@@ -169,57 +169,58 @@
     alvos.forEach(function (alvo) { observador.observe(alvo); });
   }
 
-  /* ==================== 3. PERCURSO HISTÓRICO ========================== */
+  /* =============== 3. PERCURSO POR MOVIMENTOS ARTÍSTICOS =============== */
 
-  function montarPeriodos() {
-    var container = $('#periodos');
-    var navLista = $('#periodo-nav-list');
+  function montarMovimentos() {
+    var container = $('#movimentos');
+    var navLista = $('#movimento-nav-list');
     if (!container) return;
 
-    PERIODOS.forEach(function (periodo, indice) {
+    MOVIMENTOS.forEach(function (movimento, indice) {
       if (navLista) {
         var item = criar('li');
-        var atalho = criar('a', null, periodo.titulo);
-        atalho.href = '#periodo-' + periodo.id;
+        var atalho = criar('a', null, movimento.titulo);
+        atalho.href = '#movimento-' + movimento.id;
         item.appendChild(atalho);
         navLista.appendChild(item);
       }
 
-      var artigo = criar('article', 'periodo reveal');
-      artigo.id = 'periodo-' + periodo.id;
+      var artigo = criar('article', 'movimento reveal');
+      artigo.id = 'movimento-' + movimento.id;
 
-      var texto = criar('div', 'periodo__texto');
-      texto.appendChild(criar('span', 'periodo__numero', String(indice + 1).padStart(2, '0') + ' · Período'));
+      var texto = criar('div', 'movimento__texto');
+      texto.appendChild(criar('span', 'movimento__numero', String(indice + 1).padStart(2, '0') + ' · Movimento'));
 
-      var titulo = criar('h3', 'periodo__titulo', periodo.titulo);
+      var titulo = criar('h3', 'movimento__titulo', movimento.titulo);
       texto.appendChild(titulo);
-      texto.appendChild(criar('p', 'periodo__intervalo', periodo.intervalo));
-      texto.appendChild(criar('p', null, periodo.introducao));
+      texto.appendChild(criar('p', 'movimento__intervalo',
+        movimento.intervalo + (movimento.estiloResumo ? ' · ' + movimento.estiloResumo : '')));
+      texto.appendChild(criar('p', null, movimento.introducao));
 
-      var medico = criar('div', 'periodo__bloco');
-      medico.appendChild(criar('p', 'periodo__bloco-rotulo', 'Conhecimentos médicos do período'));
-      medico.appendChild(criar('p', null, periodo.contextoMedico));
+      var medico = criar('div', 'movimento__bloco');
+      medico.appendChild(criar('p', 'movimento__bloco-rotulo', 'Conhecimentos médicos do período'));
+      medico.appendChild(criar('p', null, movimento.contextoMedico));
       texto.appendChild(medico);
 
-      if (periodo.transformacao) {
-        var mudanca = criar('div', 'periodo__bloco');
-        mudanca.appendChild(criar('p', 'periodo__bloco-rotulo', 'O que muda em relação ao período anterior'));
-        mudanca.appendChild(criar('p', null, periodo.transformacao));
+      if (movimento.transformacao) {
+        var mudanca = criar('div', 'movimento__bloco');
+        mudanca.appendChild(criar('p', 'movimento__bloco-rotulo', 'O que muda em relação ao período anterior'));
+        mudanca.appendChild(criar('p', null, movimento.transformacao));
         texto.appendChild(mudanca);
       }
 
-      if (periodo.reflexao) {
-        texto.appendChild(criar('p', 'periodo__reflexao', periodo.reflexao));
+      if (movimento.reflexao) {
+        texto.appendChild(criar('p', 'movimento__reflexao', movimento.reflexao));
       }
 
-      var media = criar('div', 'periodo__media');
-      var obras = (periodo.obras || []).map(obraPorId).filter(Boolean);
+      var media = criar('div', 'movimento__media');
+      var obras = (movimento.obras || []).map(obraPorId).filter(Boolean);
 
       if (obras.length) {
         media.appendChild(figuraObra(obras[0], 'principal'));
 
         if (obras.length > 1) {
-          var secundarias = criar('div', 'periodo__secundarias');
+          var secundarias = criar('div', 'movimento__secundarias');
           obras.slice(1).forEach(function (obra) {
             secundarias.appendChild(figuraObra(obra, 'secundaria'));
           });
@@ -389,7 +390,7 @@
 
   /* =================== 6. ACERVO: FILTROS E GALERIA ==================== */
 
-  var estadoFiltros = { periodo: 'todos', tema: 'todos', linguagem: 'todos', busca: '' };
+  var estadoFiltros = { movimento: 'todos', tema: 'todos', linguagem: 'todos', busca: '' };
   var resultadoAtual = OBRAS.slice();
 
   function montarChipsFiltro(containerId, opcoes, chave) {
@@ -421,7 +422,7 @@
     if (!termo) return true;
     var campos = [
       obra.titulo, obra.tituloOriginal, obra.artista, obra.ano, obra.tecnica,
-      obra.localizacao, rotuloPeriodo(obra.periodo), obra.descricaoVisual,
+      obra.localizacao, rotuloMovimento(obra.movimento), obra.estilo, obra.descricaoVisual,
       obra.contextoHistorico, obra.relacaoMedicina, obra.reflexao
     ].concat(obra.palavrasChave || [], obra.categorias || []);
 
@@ -434,7 +435,7 @@
   function aplicarFiltros() {
     resultadoAtual = OBRAS.filter(function (obra) {
       var categorias = obra.categorias || [];
-      if (estadoFiltros.periodo !== 'todos' && obra.periodo !== estadoFiltros.periodo) return false;
+      if (estadoFiltros.movimento !== 'todos' && obra.movimento !== estadoFiltros.movimento) return false;
       if (estadoFiltros.tema !== 'todos' && categorias.indexOf(estadoFiltros.tema) === -1) return false;
       if (estadoFiltros.linguagem !== 'todos' && categorias.indexOf(estadoFiltros.linguagem) === -1) return false;
       return correspondeBusca(obra, estadoFiltros.busca);
@@ -449,7 +450,7 @@
     if (!contador) return;
 
     var filtrando =
-      estadoFiltros.periodo !== 'todos' ||
+      estadoFiltros.movimento !== 'todos' ||
       estadoFiltros.tema !== 'todos' ||
       estadoFiltros.linguagem !== 'todos' ||
       estadoFiltros.busca !== '';
@@ -490,7 +491,7 @@
       botao.appendChild(legenda);
 
       var rodape = criar('span', 'artwork-card__rodape');
-      rodape.appendChild(criar('span', 'artwork-card__periodo', rotuloPeriodo(obra.periodo)));
+      rodape.appendChild(criar('span', 'artwork-card__movimento', rotuloMovimento(obra.movimento)));
       if (obra.verificacao === 'a-confirmar') {
         rodape.appendChild(criar('span', 'selo-pendente', 'dados a confirmar'));
       }
@@ -503,7 +504,7 @@
   }
 
   function limparFiltros() {
-    estadoFiltros = { periodo: 'todos', tema: 'todos', linguagem: 'todos', busca: '' };
+    estadoFiltros = { movimento: 'todos', tema: 'todos', linguagem: 'todos', busca: '' };
     var busca = $('#busca');
     if (busca) busca.value = '';
     $$('.filtros .chip').forEach(function (chip) {
@@ -513,7 +514,7 @@
   }
 
   function iniciarAcervo() {
-    montarChipsFiltro('#filtro-periodos', CATEGORIAS.periodos || [], 'periodo');
+    montarChipsFiltro('#filtro-movimentos', CATEGORIAS.movimentos || [], 'movimento');
     montarChipsFiltro('#filtro-temas', CATEGORIAS.temas || [], 'tema');
     montarChipsFiltro('#filtro-linguagens', CATEGORIAS.linguagens || [], 'linguagem');
 
@@ -551,7 +552,7 @@
         var item = criar('li', 'reflexao-item reveal');
         item.appendChild(criar('p', 'reflexao-item__pergunta', '“' + obra.reflexao + '”'));
         item.appendChild(criar('p', 'reflexao-item__origem',
-          'A partir de: ' + obra.titulo + ' · ' + rotuloPeriodo(obra.periodo)));
+          'A partir de: ' + obra.titulo + ' · ' + rotuloMovimento(obra.movimento)));
         item.appendChild(botaoObra(obra, 'Ver a obra'));
         lista.appendChild(item);
       });
@@ -655,7 +656,8 @@
     /* Camada 1 — identificação */
     var identificacao = criar('dl', 'ficha-obra__identificacao');
     [
-      ['Período', rotuloPeriodo(obra.periodo)],
+      ['Movimento', rotuloMovimento(obra.movimento)],
+      ['Estilo', obra.estilo],
       ['Técnica', obra.tecnica],
       ['Localização', obra.localizacao],
       ['Verificação', obra.verificacao === 'confirmado' ? 'Identificação conferida' : 'Campos pendentes de conferência']
@@ -813,7 +815,7 @@
   /* ================ 10. REVELAÇÃO E INICIALIZAÇÃO ====================== */
 
   function iniciarRevelacao() {
-    var alvos = $$('.section, .reveal, .periodo, .destaque, .reflexao-item');
+    var alvos = $$('.section, .reveal, .movimento, .destaque, .reflexao-item');
     if (!alvos.length) return;
 
     var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -842,7 +844,7 @@
 
   function iniciar() {
     iniciarCabecalho();
-    montarPeriodos();
+    montarMovimentos();
     montarFiltrosTimeline();
     montarTimeline();
     montarDestaques();

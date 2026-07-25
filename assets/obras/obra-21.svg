@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1220" role="img" aria-label="Espaço reservado para imagem">
+  <defs>
+    <pattern id="tramaPobra21" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="16" stroke="#C0B9AC" stroke-width="1" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="1220" fill="#D9D4CB"/>
+  <rect width="1000" height="1220" fill="url(#tramaPobra21)"/>
+  <rect x="60" y="73" width="880" height="1074" fill="none" stroke="#C0B9AC" stroke-width="2"/>
+  <g fill="#655E53" text-anchor="middle" font-family="Lato, 'Helvetica Neue', Arial, sans-serif">
+    <text x="500" y="618" font-size="28" letter-spacing="6.0">IMAGEM A INSERIR</text>
+  </g>
+</svg>

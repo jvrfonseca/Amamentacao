@@ -33,6 +33,35 @@ ficou explicitamente vazio.
 
 ---
 
+## Organização por movimentos artísticos
+
+O acervo é organizado por **movimento/estilo**, em ordem cronológica — percorrer os
+estilos é também percorrer a história. São nove seções:
+
+| Movimento | Recorte | Obras |
+| --- | --- | --- |
+| Arte da Antiguidade | até séc. V | 2 |
+| Arte medieval e gótica | séc. V–XV | 2 |
+| Renascimento e Maneirismo | séc. XV–XVI | 5 |
+| Barroco | séc. XVII | 3 |
+| Rococó e Neoclassicismo | séc. XVIII | 4 |
+| Romantismo, Realismo e pintura acadêmica | séc. XIX e início do XX | 2 |
+| Impressionismo e pós-impressionismo | fim do séc. XIX | 4 |
+| Modernismo e fotografia documental | 1ª metade do séc. XX | 5 |
+| Arte contemporânea | pós-guerra ao presente | 1 |
+
+Cada obra tem dois campos de classificação estilística:
+
+- `movimento` — o `id` que a posiciona no percurso e no filtro (um por obra);
+- `estilo` — a denominação precisa exibida na ficha, por exemplo "Barroco flamengo",
+  "Gótico — escola sienesa", "Secessão vienense / Simbolismo".
+
+Movimento e estilo não coincidem sempre: obras de datas próximas podem pertencer a
+escolas distintas, e a pintura acadêmica brasileira do início do século XX está no
+movimento "Romantismo, Realismo e pintura acadêmica" ainda que produzida em 1912.
+
+---
+
 ## Como abrir o site
 
 O site é HTML, CSS e JavaScript puros, sem build e sem dependências. Basta abrir
@@ -57,7 +86,7 @@ styles.css                  sistema de design completo (tokens + componentes)
 script.js                   comportamento: filtros, busca, modal, linha do tempo
 data/
   obras.js                  acervo de obras + rótulos das categorias
-  periodos.js               percurso histórico (7 períodos)
+  movimentos.js             percurso por movimentos artísticos (9 movimentos)
   timeline.js               linha do tempo + tipos de marco
   referencias.js            bibliografia e documentos
 assets/
@@ -81,7 +110,7 @@ JavaScript dentro do `index.html`.
 ### Adicionar uma obra
 
 Abra `data/obras.js`, copie um bloco inteiro e ajuste. Campos mínimos: `id`, `titulo`,
-`artista`, `ano`, `periodo`, `imagem`, `categorias`.
+`artista`, `ano`, `movimento`, `imagem`, `categorias`.
 
 ```js
 {
@@ -90,14 +119,15 @@ Abra `data/obras.js`, copie um bloco inteiro e ajuste. Campos mínimos: `id`, `t
   tituloOriginal: '',
   artista: 'Nome do artista',
   ano: 'Ano ou período',
-  periodo: 'seculo-xix',              // deve existir em data/periodos.js
+  movimento: 'barroco',                // deve existir em data/movimentos.js
+  estilo: 'Barroco flamengo',          // denominação precisa, exibida na ficha
   tecnica: 'Óleo sobre tela',
   localizacao: 'Museu ou coleção',
   imagem: './assets/obras/obra-13.jpg',
   imagemStatus: 'definitiva',          // 'placeholder' enquanto não houver reprodução
   altTexto: 'Descrição objetiva do que se vê.',
   creditoImagem: 'Crédito da reprodução.',
-  categorias: ['seculo-xix', 'pintura', 'maternidade'],
+  categorias: ['barroco', 'pintura', 'maternidade'],
   palavrasChave: ['amamentação', 'cuidado'],
   destaque: false,                     // true = aparece em "Obras em destaque"
   verificacao: 'confirmado',           // ou 'a-confirmar'
@@ -130,11 +160,16 @@ Os arquivos `.svg` de reserva podem ser regenerados com
 `python3 tools/gerar-placeholders.py` (proporções e tons ficam no topo do script).
 Nunca sobrescreva um arquivo original de obra.
 
-### Editar períodos históricos
+### Editar movimentos artísticos
 
-`data/periodos.js`. Cada período tem `titulo`, `intervalo`, `introducao`,
-`contextoMedico`, `transformacao`, `reflexao` e a lista `obras` (a primeira é exibida
-como obra principal). O menu de períodos e a navegação interna se atualizam sozinhos.
+`data/movimentos.js`. Cada movimento tem `titulo`, `intervalo`, `estiloResumo`,
+`introducao`, `contextoMedico`, `transformacao`, `reflexao` e a lista `obras` (a
+primeira é exibida como obra principal). O menu de movimentos, a navegação interna e o
+filtro do acervo se atualizam sozinhos.
+
+Mantenha o array em ordem cronológica: é ela que define a sequência das seções. Ao criar
+um movimento novo, acrescente o mesmo `id` em `window.AcervoData.categorias.movimentos`
+(fim de `data/obras.js`), senão ele não aparece nos filtros.
 
 ### Adicionar um marco à linha do tempo
 
@@ -152,13 +187,14 @@ estiver incompleta. Para vincular uma referência a uma obra, cite o `id` no arr
 
 ### Alterar categorias dos filtros
 
-No fim de `data/obras.js`, em `window.AcervoData.categorias` (períodos, temas e
+No fim de `data/obras.js`, em `window.AcervoData.categorias` (movimentos, temas e
 linguagens). Os `id` usados ali são os mesmos que devem aparecer no array `categorias`
-de cada obra.
+de cada obra. O `id` de movimento precisa estar em três lugares coerentes: no campo
+`movimento` da obra, no array `categorias` da obra e na lista `categorias.movimentos`.
 
 ### Alterar perguntas reflexivas
 
-Campo `reflexao` de cada obra (`data/obras.js`) e de cada período (`data/periodos.js`).
+Campo `reflexao` de cada obra (`data/obras.js`) e de cada movimento (`data/movimentos.js`).
 A seção "Reflexões" exibe as seis primeiras perguntas de obras.
 
 ### Alterar textos institucionais
@@ -232,15 +268,26 @@ partir dos dados, de modo que o acervo pode crescer sem mudanças no HTML.
 
 **Conteúdo — obrigatório antes de qualquer publicação**
 
+0. **Conferir o acervo contra a lista de referência do projeto.** A seleção de obras foi
+   feita por curadoria a partir de obras canônicas sobre amamentação, maternidade e
+   cuidado: o documento de referência indicado pela coordenação (link do Canva) não pôde
+   ser acessado no ambiente em que o site foi construído. É necessário comparar as duas
+   listas e sinalizar o que deve ser acrescentado, substituído ou removido. As dezesseis
+   obras acrescentadas nesta etapa são: Fouquet, Solario, Giorgione, Tintoretto, Rubens
+   (duas), Caravaggio, Greuze, Vigée Le Brun, Millet, Morisot, Cassatt (*O banho da
+   criança*), Renoir, Klimt, Kollwitz e Portinari.
 1. Reproduções das obras: nenhuma imagem real foi incorporada. Verificar domínio público
    ou obter autorização, especialmente para as obras dos séculos XX e XXI.
 2. Obra de abertura: definir qual obra representa o projeto e substituir o espaço
    reservado do hero.
 3. Registros incompletos por decisão editorial: `obra-04` (iluminura medieval),
-   `obra-07` (Marguerite Gérard), `obra-10` (Tarsila do Amaral) e `obra-12`
-   (contemporânea) estão com descrição, contexto e relação com a medicina em pesquisa.
+   `obra-07` (Marguerite Gérard), `obra-10` (Tarsila do Amaral), `obra-28` (Portinari)
+   e `obra-12` (contemporânea) estão com descrição, contexto e relação com a medicina
+   em pesquisa.
 4. Datações e coleções marcadas "a confirmar" nas demais obras — conferir na ficha da
-   instituição depositária.
+   instituição depositária. Atenção especial às obras com múltiplas versões conhecidas
+   (Rubens, *Caridade Romana*; Renoir, *Maternidade*; Vigée Le Brun; Kollwitz; Millet):
+   é preciso identificar exatamente qual versão será reproduzida.
 5. Bibliografia sobre amas de leite escravizadas e libertas no Brasil (`ref-brasil-amas`):
    levantamento indispensável para os textos das obras 09 e 10.
 6. Linha do tempo: os marcos com selo "a confirmar" precisam de fonte documental; os

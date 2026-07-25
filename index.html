@@ -54,7 +54,7 @@
           <ul class="nav__list">
             <li><a href="#abertura">Início</a></li>
             <li><a href="#projeto">O projeto</a></li>
-            <li><a href="#percurso">Percurso histórico</a></li>
+            <li><a href="#percurso">Movimentos</a></li>
             <li><a href="#linha-do-tempo">Linha do tempo</a></li>
             <li><a href="#arte-e-medicina">Arte e medicina</a></li>
             <li><a href="#reflexoes">Reflexões</a></li>
@@ -193,23 +193,25 @@
         </ol>
       </section>
 
-      <!-- ================= PERCURSO HISTÓRICO ================= -->
+      <!-- ================= PERCURSO POR MOVIMENTOS ================= -->
       <section class="section" id="percurso" aria-labelledby="percurso-titulo">
         <div class="section__head">
-          <p class="eyebrow">Percurso histórico</p>
+          <p class="eyebrow">Percurso por movimentos artísticos</p>
           <h2 class="section__title" id="percurso-titulo">Uma presença contínua.</h2>
           <p class="section__standfirst">
-            A organização cronológica não pretende sugerir progresso linear. Ela permite observar
-            permanências, rupturas e mudanças de significado — e perceber que a amamentação esteve
-            presente, sob formas muito distintas, em todos esses períodos.
+            O acervo está organizado por movimentos e estilos artísticos, apresentados em ordem
+            cronológica: percorrer os estilos é também percorrer a história. A sequência não
+            pretende sugerir progresso linear — ela permite observar permanências, rupturas e
+            mudanças de significado, e perceber que a amamentação esteve presente, sob formas muito
+            distintas, em todos esses momentos.
           </p>
         </div>
 
-        <nav class="periodo-nav" aria-label="Navegação entre períodos históricos">
-          <ul class="periodo-nav__list" id="periodo-nav-list"><!-- gerado por script.js --></ul>
+        <nav class="movimento-nav" aria-label="Navegação entre movimentos artísticos">
+          <ul class="movimento-nav__list" id="movimento-nav-list"><!-- gerado por script.js --></ul>
         </nav>
 
-        <div class="periodos" id="periodos"><!-- gerado por script.js --></div>
+        <div class="movimentos" id="movimentos"><!-- gerado por script.js --></div>
       </section>
 
       <!-- ================= LINHA DO TEMPO ================= -->
@@ -273,9 +275,9 @@
           </div>
 
           <div class="filtros__grupos">
-            <div class="filtros__grupo" role="group" aria-label="Filtrar por período">
-              <span class="filtros__rotulo">Período</span>
-              <div class="chips" id="filtro-periodos"></div>
+            <div class="filtros__grupo" role="group" aria-label="Filtrar por movimento artístico">
+              <span class="filtros__rotulo">Movimento</span>
+              <div class="chips" id="filtro-movimentos"></div>
             </div>
             <div class="filtros__grupo" role="group" aria-label="Filtrar por tema">
               <span class="filtros__rotulo">Tema</span>
@@ -516,7 +518,7 @@
           <h2 class="site-footer__titulo">Navegação</h2>
           <ul>
             <li><a href="#projeto">O projeto</a></li>
-            <li><a href="#percurso">Percurso histórico</a></li>
+            <li><a href="#percurso">Movimentos</a></li>
             <li><a href="#linha-do-tempo">Linha do tempo</a></li>
             <li><a href="#acervo">Acervo</a></li>
             <li><a href="#reflexoes">Reflexões</a></li>
@@ -561,7 +563,7 @@
   </div>
 
   <script src="./data/obras.js"></script>
-  <script src="./data/periodos.js"></script>
+  <script src="./data/movimentos.js"></script>
   <script src="./data/timeline.js"></script>
   <script src="./data/referencias.js"></script>
   <script src="./script.js"></script>

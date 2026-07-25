@@ -693,7 +693,7 @@ button { font: inherit; color: inherit; }
 
 /* ======================= 7. PERCURSO HISTÓRICO ======================== */
 
-.periodo-nav {
+.movimento-nav {
   position: relative;
   margin-bottom: var(--esp-xl);
   padding-bottom: var(--esp-xs);
@@ -701,13 +701,13 @@ button { font: inherit; color: inherit; }
   overflow-x: auto;
 }
 
-.periodo-nav__list {
+.movimento-nav__list {
   display: flex;
   gap: var(--esp-md);
   min-width: max-content;
 }
 
-.periodo-nav__list a {
+.movimento-nav__list a {
   display: inline-block;
   padding: var(--esp-2xs) 0;
   font-size: var(--texto-sm);
@@ -719,11 +719,11 @@ button { font: inherit; color: inherit; }
   transition: color var(--transicao), border-color var(--transicao);
 }
 
-.periodo-nav__list a:hover { color: var(--cor-texto); border-bottom-color: var(--cor-linha-forte); }
+.movimento-nav__list a:hover { color: var(--cor-texto); border-bottom-color: var(--cor-linha-forte); }
 
-.periodos { display: grid; gap: var(--esp-2xl); }
+.movimentos { display: grid; gap: var(--esp-2xl); }
 
-.periodo {
+.movimento {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: var(--esp-xl);
@@ -731,9 +731,9 @@ button { font: inherit; color: inherit; }
   scroll-margin-top: 7rem;
 }
 
-.periodo:nth-child(even) .periodo__media { order: -1; }
+.movimento:nth-child(even) .movimento__media { order: -1; }
 
-.periodo__numero {
+.movimento__numero {
   display: block;
   margin-bottom: var(--esp-xs);
   font-size: var(--texto-xs);
@@ -743,9 +743,9 @@ button { font: inherit; color: inherit; }
   color: var(--cor-acento);
 }
 
-.periodo__titulo { font-size: var(--texto-xl); }
+.movimento__titulo { font-size: var(--texto-xl); }
 
-.periodo__intervalo {
+.movimento__intervalo {
   margin: var(--esp-2xs) 0 var(--esp-md);
   font-family: var(--fonte-titulo);
   font-style: italic;
@@ -753,15 +753,15 @@ button { font: inherit; color: inherit; }
   color: var(--cor-texto-suave);
 }
 
-.periodo__texto { color: var(--cor-texto-suave); max-width: 56ch; }
+.movimento__texto { color: var(--cor-texto-suave); max-width: 56ch; }
 
-.periodo__bloco {
+.movimento__bloco {
   margin-top: var(--esp-md);
   padding-top: var(--esp-md);
   border-top: 1px solid var(--cor-linha);
 }
 
-.periodo__bloco-rotulo {
+.movimento__bloco-rotulo {
   margin-bottom: var(--esp-2xs);
   font-size: var(--texto-xs);
   font-weight: 700;
@@ -770,9 +770,9 @@ button { font: inherit; color: inherit; }
   color: var(--cor-texto);
 }
 
-.periodo__bloco p { font-size: var(--texto-base); color: var(--cor-texto-suave); }
+.movimento__bloco p { font-size: var(--texto-base); color: var(--cor-texto-suave); }
 
-.periodo__reflexao {
+.movimento__reflexao {
   margin-top: var(--esp-md);
   padding: var(--esp-md);
   background-color: var(--cor-superficie-2);
@@ -783,9 +783,9 @@ button { font: inherit; color: inherit; }
   color: var(--cor-texto);
 }
 
-.periodo__media { display: grid; gap: var(--esp-sm); }
+.movimento__media { display: grid; gap: var(--esp-sm); }
 
-.periodo__secundarias {
+.movimento__secundarias {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--esp-sm);
@@ -1089,7 +1089,7 @@ button { font: inherit; color: inherit; }
   margin-top: var(--esp-3xs);
 }
 
-.artwork-card__periodo {
+.artwork-card__movimento {
   font-size: var(--texto-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1617,8 +1617,8 @@ button { font: inherit; color: inherit; }
     padding: 0.75rem 1.1rem !important;
   }
 
-  .periodo { grid-template-columns: minmax(0, 1fr); gap: var(--esp-lg); }
-  .periodo:nth-child(even) .periodo__media { order: 0; }
+  .movimento { grid-template-columns: minmax(0, 1fr); gap: var(--esp-lg); }
+  .movimento:nth-child(even) .movimento__media { order: 0; }
 
   .sobre-grid { grid-template-columns: minmax(0, 1fr); }
 
