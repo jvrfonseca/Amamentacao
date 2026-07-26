@@ -96,9 +96,15 @@ O acervo mostra espaços reservados até que as reproduções sejam incorporadas
 obras em domínio público isso é automático — **execute em uma máquina com internet**:
 
 ```bash
+python3 tools/baixar-obras.py --links      # lista os links de busca (não usa rede)
 python3 tools/baixar-obras.py --simular    # mostra o que seria baixado
 python3 tools/baixar-obras.py              # baixa de fato
 ```
+
+`--links` grava `assets/obras/LINKS-IMAGENS.md` com o link de busca de cada obra e o
+nome de arquivo correspondente — útil para baixar à mão, sem rodar o download
+automático. São links de busca, não links diretos: o endereço final de cada arquivo
+depende de hashes internos do Commons.
 
 O script busca cada obra no Wikimedia Commons, baixa uma versão de até 1600 px para
 `assets/obras/<id>.jpg`, lê autoria, licença e fonte dos metadados do próprio Commons e

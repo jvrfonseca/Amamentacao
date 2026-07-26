@@ -16,6 +16,7 @@ Uso:
     python3 tools/baixar-obras.py                  # baixa tudo o que falta
     python3 tools/baixar-obras.py --simular        # só mostra o que faria
     python3 tools/baixar-obras.py --obra obra-17   # uma obra específica
+    python3 tools/baixar-obras.py --links          # só os links, sem usar a rede
     python3 tools/baixar-obras.py --forcar         # rebaixa o que já existe
 
 IMPORTANTE
@@ -143,6 +144,61 @@ def montar_credito(titulo_arquivo, info):
     return '. '.join(p for p in partes if p) + '.'
 
 
+def link_de_busca(termo):
+    """Link de busca visual no Commons — construído a partir do termo, sem rede.
+
+    Não existe link direto estável para o arquivo: o endereço final depende de
+    hashes internos do Commons. O link de busca leva à grade de resultados, de
+    onde se escolhe e se baixa a reprodução correta.
+    """
+    return 'https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=' + \
+        urllib.parse.quote_plus(termo)
+
+
+def escrever_links():
+    """Gera assets/obras/LINKS-IMAGENS.md e imprime a lista."""
+    titulos = titulos_das_obras()
+    linhas = [
+        '# Onde obter cada reprodução',
+        '',
+        'Gerado por `python3 tools/baixar-obras.py --links`.',
+        '',
+        'São **links de busca** no Wikimedia Commons, não links diretos de arquivo:',
+        'o endereço final de cada imagem depende de hashes internos da plataforma.',
+        'Abra o link, escolha a reprodução de melhor resolução, confira se corresponde',
+        'à obra e salve com o nome de arquivo indicado.',
+        '',
+        '| Obra | Título | Salvar como | Buscar |',
+        '| --- | --- | --- | --- |',
+    ]
+    for obra_id, termo in BUSCAS.items():
+        linhas.append('| `%s` | %s | `assets/obras/%s.jpg` | [buscar no Commons](%s) |'
+                      % (obra_id, titulos.get(obra_id, '—'), obra_id, link_de_busca(termo)))
+
+    linhas += ['', '## Não baixar', '', '| Obra | Título | Motivo |', '| --- | --- | --- |']
+    for obra_id, motivo in NAO_BAIXAR.items():
+        linhas.append('| `%s` | %s | %s |' % (obra_id, titulos.get(obra_id, '—'), motivo))
+    linhas.append('')
+
+    caminho = PASTA_OBRAS / 'LINKS-IMAGENS.md'
+    PASTA_OBRAS.mkdir(parents=True, exist_ok=True)
+    caminho.write_text('\n'.join(linhas), encoding='utf-8')
+
+    for obra_id, termo in BUSCAS.items():
+        print('%-9s %-38s %s' % (obra_id, titulos.get(obra_id, '')[:38], link_de_busca(termo)))
+    print('\nLista gravada em %s' % caminho.relative_to(RAIZ))
+
+
+def titulos_das_obras():
+    """Lê título e artista de data/obras.js, sem depender de rede."""
+    fonte = ARQUIVO_DADOS.read_text(encoding='utf-8')
+    registros = re.findall(
+        r"id: '(obra-\d+)',\s*\n\s*titulo: '((?:[^'\\]|\\.)*)'.*?\n\s*artista: '((?:[^'\\]|\\.)*)'",
+        fonte, re.S)
+    return {rid: '%s — %s' % (titulo.replace("\\'", "'"), artista.replace("\\'", "'"))
+            for rid, titulo, artista in registros}
+
+
 def baixar(url, destino):
     pedido = urllib.request.Request(url, headers={'User-Agent': AGENTE})
     with urllib.request.urlopen(pedido, timeout=180) as resposta:
@@ -190,7 +246,13 @@ def main():
     ap.add_argument('--obra', help='baixa apenas o id indicado (ex.: obra-17)')
     ap.add_argument('--simular', action='store_true', help='mostra o que faria, sem gravar nada')
     ap.add_argument('--forcar', action='store_true', help='rebaixa mesmo se o arquivo já existir')
+    ap.add_argument('--links', action='store_true',
+                    help='apenas lista os links de busca (não usa rede) e grava LINKS-IMAGENS.md')
     args = ap.parse_args()
+
+    if args.links:
+        escrever_links()
+        return
 
     alvos = {args.obra: BUSCAS[args.obra]} if args.obra else dict(BUSCAS)
     if args.obra and args.obra not in BUSCAS:
