@@ -129,18 +129,18 @@ window.AcervoData.movimentos = [
 
   {
     id: 'modernismo',
-    titulo: 'Modernismo e fotografia documental',
-    intervalo: 'Primeira metade do século XX',
-    estiloResumo: 'Simbolismo tardio, expressionismo, modernismos, fotografia documental',
+    titulo: 'Modernismo',
+    intervalo: 'Início do século XX',
+    estiloResumo: 'Simbolismo, Secessão vienense, expressionismo alemão',
     introducao:
-      'Os modernismos rompem com a representação naturalista e tratam a maternidade em chave simbólica e política. Ao lado da pintura e da gravura, a fotografia documental passa a produzir imagens destinadas a sustentar argumentos públicos sobre fome, pobreza e assistência. É também o momento em que a arte deixa de idealizar a maternidade e passa a representar a perda e o luto.',
+      'Os modernismos rompem com a representação naturalista e tratam a maternidade em chave simbólica e política. A pintura vienense a inscreve num ciclo de vida que vai da infância à velhice; a gravura expressionista alemã abandona de vez a serenidade e representa a perda. É o momento em que a arte deixa de idealizar a maternidade — e em que o corpo que cuida aparece envelhecido, exausto ou em luto.',
     contextoMedico:
       'Após décadas de queda nas taxas de aleitamento em vários países, organismos internacionais passam a atuar de forma coordenada. A mortalidade infantil torna-se indicador central de saúde pública, e a desnutrição infantil, objeto de programas de Estado.',
     transformacao:
-      'A imagem da maternidade deixa de ser necessariamente serena: perda, fome e desigualdade entram no campo do representável.',
+      'A imagem da maternidade deixa de ser necessariamente serena: o envelhecimento, a exaustão e o luto entram no campo do representável.',
     reflexao:
-      'O que se ganha, e o que se arrisca, quando imagens de sofrimento são usadas como argumento em saúde pública?',
-    obras: ['obra-26', 'obra-27', 'obra-11']
+      'O que uma imagem de luto acrescenta ao que os indicadores de mortalidade infantil já informam?',
+    obras: ['obra-26', 'obra-27']
   },
 
 ];

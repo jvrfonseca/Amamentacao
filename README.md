@@ -31,7 +31,7 @@ Três estados de conteúdo convivem no site e são **sempre distinguidos na inte
 Nada foi preenchido por dedução visual. Onde não havia informação verificável, o campo
 ficou explicitamente vazio.
 
-**As 21 obras do acervo têm reprodução incorporada.** As imagens foram fornecidas pela
+**As 20 obras do acervo têm reprodução incorporada.** As imagens foram fornecidas pela
 coordenação a partir do Wikimedia Commons; o crédito individual de cada uma — autoria da
 fotografia, licença e página de origem — ainda precisa ser registrado obra a obra no campo
 `creditoImagem` de `data/obras.js`.
@@ -41,7 +41,7 @@ fotografia, licença e página de origem — ainda precisa ser registrado obra a
 ## Organização por movimentos artísticos
 
 O acervo é organizado por **movimento/estilo**, em ordem cronológica — percorrer os
-estilos é também percorrer a história. São oito seções, com 21 obras:
+estilos é também percorrer a história. São oito seções, com 20 obras:
 
 | Movimento | Recorte | Obras |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ estilos é também percorrer a história. São oito seções, com 21 obras:
 | Rococó e Neoclassicismo | séc. XVIII | 3 |
 | Romantismo, Realismo e pintura acadêmica | séc. XIX e início do XX | 2 |
 | Impressionismo e pós-impressionismo | fim do séc. XIX | 4 |
-| Modernismo e fotografia documental | 1ª metade do séc. XX | 3 |
+| Modernismo | início do séc. XX | 2 |
 
 Cada obra tem dois campos de classificação estilística:
 
@@ -63,6 +63,30 @@ Cada obra tem dois campos de classificação estilística:
 Movimento e estilo não coincidem sempre: obras de datas próximas podem pertencer a
 escolas distintas, e a pintura acadêmica brasileira do início do século XX está no
 movimento "Romantismo, Realismo e pintura acadêmica" ainda que produzida em 1912.
+
+---
+
+## Escopo do acervo
+
+O recorte foi fechado a partir das obras efetivamente disponíveis, e não o contrário. Ele
+está declarado no próprio site, na seção do acervo e em "Sobre o projeto":
+
+- **Recorte temporal:** da Antiguidade ao início do século XX (a obra mais recente é de 1905).
+- **Linguagens:** pintura, escultura e gravura. Não há fotografia nem arte contemporânea.
+- **Geografia:** predominantemente europeia — Egito antigo, Itália, França, Flandres, Áustria
+  e Alemanha —, com uma obra brasileira, que traz ao percurso a história das amas de leite
+  escravizadas.
+
+Duas decisões decorrem disso e estão implementadas:
+
+1. **Nenhum filtro devolve zero resultados.** As categorias sem obra correspondente foram
+   removidas das listas de filtro (fotografia, ilustração, documento histórico, saúde
+   pública). Ao acrescentar obras dessas linguagens, reponha as entradas em
+   `window.AcervoData.categorias`, no fim de `data/obras.js`.
+2. **A linha do tempo avança além da última obra, de propósito** — até o século XXI. As
+   transformações médicas e políticas mais decisivas para o aleitamento ocorreram depois que
+   estas obras foram produzidas, e o site diz isso explicitamente em vez de deixar a
+   impressão de uma lacuna.
 
 ---
 
@@ -96,7 +120,7 @@ O arquivo é **derivado**: nunca o edite. Altere o projeto e gere de novo.
 
 ## Trazer as reproduções das obras
 
-As 21 obras já têm reprodução. O script abaixo serve para **repor uma imagem** por uma
+As 20 obras já têm reprodução. O script abaixo serve para **repor uma imagem** por uma
 versão de melhor resolução, ou para trazer a reprodução de uma obra nova. Precisa de uma
 máquina com internet:
 
@@ -334,7 +358,7 @@ partir dos dados, de modo que o acervo pode crescer sem mudanças no HTML.
    obras acrescentadas nesta etapa são: Fouquet, Solario, Giorgione, Tintoretto, Rubens
    (duas), Caravaggio, Greuze, Vigée Le Brun, Millet, Morisot, Cassatt (*O banho da
    criança*), Renoir, Klimt, Kollwitz e Portinari.
-1. **Créditos individuais das imagens.** Todas as 21 reproduções estão no site, mas o
+1. **Créditos individuais das imagens.** Todas as 20 reproduções estão no site, mas o
    campo `creditoImagem` traz um texto genérico apontando o Wikimedia Commons. É preciso
    registrar, obra a obra, a autoria da fotografia, a licença e a URL da página de origem.
    Sem isso o acervo não deve ser publicado.

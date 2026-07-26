@@ -724,40 +724,6 @@ window.AcervoData.obras = [
     referencias: []
   },
 
-{
-    id: 'obra-11',
-    titulo: 'Mãe migrante',
-    tituloOriginal: 'Migrant Mother',
-    artista: 'Dorothea Lange',
-    ano: '1936',
-    movimento: 'modernismo',
-    estilo: 'Fotografia documental',
-    tecnica: 'Fotografia',
-    localizacao: 'Library of Congress, Washington (Farm Security Administration/OWI Collection)',
-    imagem: './assets/obras/obra-11.jpg',
-    imagemStatus: 'definitiva',
-    altTexto: 'Fotografia em preto e branco de uma mulher sentada, com a mão junto ao rosto, acompanhada de crianças que se apoiam em seus ombros e de um bebê em seu colo.',
-    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
-    categorias: ['modernismo', 'fotografia', 'documento', 'nutricao', 'saude-publica'],
-    palavrasChave: ['fotografia', 'documento', 'nutrição', 'pobreza', 'saúde pública', 'infância', 'estados unidos'],
-    destaque: true,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Confirmar título, número de identificação e legenda originais junto à Library of Congress. A imagem integra um conjunto de registros feitos na mesma ocasião.',
-    descricaoVisual:
-      'Fotografia em preto e branco. Uma mulher sentada leva a mão ao rosto, o olhar dirigido para fora do enquadramento. Duas crianças apoiam-se em seus ombros, com os rostos voltados para trás; um bebê repousa em seu colo.',
-    contextoHistorico:
-      'A imagem foi produzida no âmbito de um programa governamental norte-americano de documentação fotográfica das condições de vida rural durante a Grande Depressão. Fotografias como esta foram usadas para tornar visíveis situações de privação alimentar e sustentar políticas de assistência.',
-    relacaoMedicina:
-      'A fotografia documental tornou-se, no século XX, instrumento de argumentação em saúde pública. No caso da alimentação infantil, imagens de privação foram mobilizadas para justificar programas de distribuição de alimentos, acompanhamento nutricional e assistência materno-infantil. O registro também levanta uma questão ética permanente: pessoas fotografadas em situação de vulnerabilidade raramente controlam o uso posterior de sua imagem.',
-    reflexao:
-      'Que responsabilidades acompanham o uso de imagens de pessoas em situação de vulnerabilidade como argumento em saúde pública?',
-    fontes: [
-      { titulo: 'Registro na FSA/OWI Collection', instituicao: 'Library of Congress', ano: '1936', url: '' }
-    ],
-    referencias: ['ref-stevens-2009']
-  },
-
 ];
 
 /* Rótulos legíveis para as categorias usadas nos filtros.
@@ -784,16 +750,12 @@ window.AcervoData.categorias = {
     { id: 'espiritualidade', rotulo: 'Espiritualidade' },
     { id: 'nutricao', rotulo: 'Nutrição' },
     { id: 'saude-materno-infantil', rotulo: 'Saúde materno-infantil' },
-    { id: 'saude-publica', rotulo: 'Saúde pública' },
     { id: 'corpo', rotulo: 'Corpo' },
     { id: 'mito-fundacao', rotulo: 'Mito e alegoria' }
   ],
   linguagens: [
     { id: 'pintura', rotulo: 'Pintura' },
     { id: 'escultura', rotulo: 'Escultura' },
-    { id: 'gravura', rotulo: 'Gravura' },
-    { id: 'fotografia', rotulo: 'Fotografia' },
-    { id: 'ilustracao', rotulo: 'Ilustração' },
-    { id: 'documento', rotulo: 'Documento histórico' }
+    { id: 'gravura', rotulo: 'Gravura' }
   ]
 };

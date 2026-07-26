@@ -29,7 +29,6 @@ Abra o link, escolha a reprodução de melhor resolução, confira se correspond
 | `obra-25` | Maternidade — Pierre-Auguste Renoir | `assets/obras/obra-25.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Renoir+Maternite+Aline+nursing+child) |
 | `obra-26` | As Três Idades da Mulher — Gustav Klimt | `assets/obras/obra-26.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Gustav+Klimt+The+Three+Ages+of+Woman) |
 | `obra-27` | Mulher com criança morta — Käthe Kollwitz | `assets/obras/obra-27.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Kathe+Kollwitz+Frau+mit+totem+Kind+1903) |
-| `obra-11` | Mãe migrante — Dorothea Lange | `assets/obras/obra-11.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Dorothea+Lange+Migrant+Mother+1936) |
 
 ## Não baixar
 

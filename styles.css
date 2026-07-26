@@ -1740,3 +1740,23 @@ button { font: inherit; color: inherit; }
 
   .creditos-lista__item .selo-pendente { justify-self: start; }
 }
+
+/* Escopo do acervo — bloco factual entre os textos institucionais provisórios. */
+.escopo {
+  margin-bottom: var(--esp-lg);
+  padding: var(--esp-md);
+  background-color: var(--cor-superficie-2);
+  border-left: 2px solid var(--cor-acento-claro);
+}
+
+.escopo__titulo {
+  margin-bottom: var(--esp-2xs);
+  font-size: var(--texto-md);
+}
+
+.escopo p {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.escopo p + p { margin-top: var(--esp-2xs); }

@@ -70,7 +70,6 @@ BUSCAS = {
     'obra-25': 'Renoir Maternite Aline nursing child',
     'obra-26': 'Gustav Klimt The Three Ages of Woman',
     'obra-27': 'Kathe Kollwitz Frau mit totem Kind 1903',
-    'obra-11': 'Dorothea Lange Migrant Mother 1936',
 }
 
 # Obras deliberadamente não baixadas, com o motivo exibido ao usuário.
