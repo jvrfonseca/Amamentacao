@@ -1,3 +1,5 @@
 
 # Versão derivada, gerada por tools/gerar-preview.py
 preview/
+__pycache__/
+*.pyc
