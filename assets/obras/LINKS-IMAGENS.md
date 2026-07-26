@@ -18,9 +18,7 @@ Abra o link, escolha a reprodução de melhor resolução, confira se correspond
 | `obra-15` | A Tempestade — Giorgione | `assets/obras/obra-15.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Giorgione+La+Tempesta+Accademia) |
 | `obra-16` | A Origem da Via Láctea — Jacopo Tintoretto | `assets/obras/obra-16.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Tintoretto+Origin+of+the+Milky+Way+National+Gallery) |
 | `obra-17` | O nascimento da Via Láctea — Peter Paul Rubens | `assets/obras/obra-17.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Rubens+El+nacimiento+de+la+Via+Lactea+Prado) |
-| `obra-18` | As Sete Obras de Misericórdia — Michelangelo Merisi da Caravaggio | `assets/obras/obra-18.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Caravaggio+Sette+opere+di+Misericordia+Napoli) |
-| `obra-19` | Caridade Romana (Cimon e Pero) — Peter Paul Rubens | `assets/obras/obra-19.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Rubens+Roman+Charity+Cimon+Pero) |
-| `obra-06` | A despedida da ama de leite — Étienne Aubry | `assets/obras/obra-06.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Etienne+Aubry+Les+adieux+a+la+nourrice) |
+| `obra-06` | A despedida da ama de leite — Gravura segundo Étienne Aubry — gravador a confirmar | `assets/obras/obra-06.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Etienne+Aubry+Les+adieux+a+la+nourrice) |
 | `obra-20` | A mãe bem-amada — Jean-Baptiste Greuze | `assets/obras/obra-20.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Jean-Baptiste+Greuze+La+Mere+bien-aimee) |
 | `obra-21` | Autorretrato com a filha — Élisabeth Louise Vigée Le Brun | `assets/obras/obra-21.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Vigee+Le+Brun+autoportrait+avec+sa+fille+Julie+Louvre) |
 | `obra-22` | A refeição — Jean-François Millet | `assets/obras/obra-22.jpg` | [buscar no Commons](https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Jean-Francois+Millet+La+Becquee) |
@@ -37,8 +35,3 @@ Abra o link, escolha a reprodução de melhor resolução, confira se correspond
 
 | Obra | Título | Motivo |
 | --- | --- | --- |
-| `obra-04` | Título a confirmar — Autoria a confirmar | obra ainda não identificada — escolher a iluminura antes |
-| `obra-07` | A mãe que amamenta — Marguerite Gérard | obra específica de Marguerite Gérard ainda não identificada |
-| `obra-10` | A Negra — Tarsila do Amaral | Tarsila do Amaral (1897–1973): protegida por direitos autorais |
-| `obra-28` | Criança Morta — Candido Portinari | Candido Portinari (1903–1962): protegido por direitos autorais |
-| `obra-12` | Título a confirmar — Autoria a confirmar | obra contemporânea ainda não selecionada |

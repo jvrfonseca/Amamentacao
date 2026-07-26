@@ -65,11 +65,45 @@ def embutir_fontes(css):
     return ''.join(saida)
 
 
+# O preview é uma via de leitura e apresentação: 900 px cobrem com folga o card
+# (≈520 px) e a ficha ampliada (≈500 px). Os arquivos do site seguem intactos,
+# em resolução plena.
+LARGURA_PREVIEW = 900
+QUALIDADE_PREVIEW = 72
+
+
+def jpeg_reduzido(caminho):
+    """Reduz a reprodução apenas para o preview. O original não é tocado.
+
+    Usa PyMuPDF quando disponível. Sem ele, embute o arquivo como está — o
+    preview apenas fica maior.
+    """
+    try:
+        import fitz
+    except ImportError:
+        return None
+
+    documento = fitz.open(str(RAIZ / caminho))
+    pagina = documento[0]
+    escala = min(1.0, LARGURA_PREVIEW / pagina.rect.width)
+    pix = pagina.get_pixmap(matrix=fitz.Matrix(escala, escala))
+    dados = pix.tobytes('jpeg', jpg_quality=QUALIDADE_PREVIEW)
+    documento.close()
+    return 'data:image/jpeg;base64,' + base64.b64encode(dados).decode('ascii')
+
+
 def embutir_imagens(texto):
-    """Troca os caminhos de assets/*.svg por data URIs, no HTML e nos dados."""
+    """Troca os caminhos de assets/ por data URIs, no HTML e nos dados."""
+    def trocar(m):
+        caminho = m.group(1)
+        if caminho.endswith('.svg'):
+            return como_data_uri(caminho, 'image/svg+xml')
+        reduzido = jpeg_reduzido(caminho)
+        return reduzido or como_data_uri(caminho, 'image/jpeg')
+
     return re.sub(
-        r"\./(assets/(?:obras|images|logos)/[\w\-.]+\.svg)",
-        lambda m: como_data_uri(m.group(1), 'image/svg+xml'),
+        r"\./(assets/(?:obras|images|logos)/[\w\-.]+\.(?:svg|jpg|jpeg|png))",
+        trocar,
         texto,
     )
 

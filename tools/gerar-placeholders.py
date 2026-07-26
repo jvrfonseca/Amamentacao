@@ -34,41 +34,13 @@ PALETAS = {
     "editorial": ("#CFC7B8", "#B6AC99", "#5C554A"),
 }
 
-# id, movimento (paleta), largura, altura — ordem do percurso
-OBRAS = [
-    ("obra-01", "antiguidade", 1000, 1250),
-    ("obra-02", "antiguidade", 900, 1200),
-    ("obra-03", "idade-media", 960, 1280),
-    ("obra-04", "idade-media", 1280, 960),
-    ("obra-05", "renascimento", 1000, 1250),
-    ("obra-13", "renascimento", 940, 1200),
-    ("obra-14", "renascimento", 1000, 1240),
-    ("obra-15", "renascimento", 1180, 1000),
-    ("obra-16", "renascimento", 1300, 1000),
-    ("obra-17", "barroco", 1320, 1000),
-    ("obra-18", "barroco", 1000, 1400),
-    ("obra-19", "barroco", 1000, 1240),
-    ("obra-06", "rococo-neoclassicismo", 1280, 960),
-    ("obra-20", "rococo-neoclassicismo", 1300, 1000),
-    ("obra-21", "rococo-neoclassicismo", 1000, 1220),
-    ("obra-07", "rococo-neoclassicismo", 1100, 1100),
-    ("obra-22", "romantismo-realismo", 1280, 1000),
-    ("obra-09", "romantismo-realismo", 1280, 960),
-    ("obra-08", "impressionismo", 1000, 1250),
-    ("obra-24", "impressionismo", 1000, 1300),
-    ("obra-23", "impressionismo", 1300, 1000),
-    ("obra-25", "impressionismo", 1040, 1240),
-    ("obra-10", "modernismo", 1100, 1100),
-    ("obra-26", "modernismo", 1060, 1180),
-    ("obra-27", "modernismo", 1240, 1000),
-    ("obra-28", "modernismo", 1280, 980),
-    ("obra-11", "modernismo", 1000, 1250),
-    ("obra-12", "contemporaneidade", 1400, 933),
-]
+# Todas as obras do acervo possuem reprodução. Esta lista existe para o caso de
+# uma obra nova entrar sem imagem: acrescente ("obra-99", "barroco", 1000, 1250)
+# e aponte o campo `imagem` para o .svg gerado.
+OBRAS = []
 
 # id, paleta, largura, altura, legenda
 AMBIENTES = [
-    ("hero", "editorial", 1800, 1200, "Obra de abertura a definir"),
     ("faixa-medicina", "romantismo-realismo", 1800, 900, "Imagem de apoio a definir"),
     ("faixa-contemporanea", "contemporaneidade", 1800, 900, "Imagem de apoio a definir"),
 ]
@@ -123,6 +95,8 @@ def main():
 
     for nome, paleta, w, h in OBRAS:
         print(gerar(nome, paleta, w, h, "IMAGEM A INSERIR", pasta_obras).relative_to(RAIZ))
+
+    print(gerar("sem-imagem", "editorial", 1000, 750, "IMAGEM INDISPONÍVEL", pasta_obras).relative_to(RAIZ))
 
     for nome, paleta, w, h, rotulo in AMBIENTES:
         print(gerar(nome, paleta, w, h, rotulo.upper(), pasta_imagens).relative_to(RAIZ))

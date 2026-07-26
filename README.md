@@ -31,24 +31,28 @@ Três estados de conteúdo convivem no site e são **sempre distinguidos na inte
 Nada foi preenchido por dedução visual. Onde não havia informação verificável, o campo
 ficou explicitamente vazio.
 
+**As 21 obras do acervo têm reprodução incorporada.** As imagens foram fornecidas pela
+coordenação a partir do Wikimedia Commons; o crédito individual de cada uma — autoria da
+fotografia, licença e página de origem — ainda precisa ser registrado obra a obra no campo
+`creditoImagem` de `data/obras.js`.
+
 ---
 
 ## Organização por movimentos artísticos
 
 O acervo é organizado por **movimento/estilo**, em ordem cronológica — percorrer os
-estilos é também percorrer a história. São nove seções:
+estilos é também percorrer a história. São oito seções, com 21 obras:
 
 | Movimento | Recorte | Obras |
 | --- | --- | --- |
 | Arte da Antiguidade | até séc. V | 2 |
-| Arte medieval e gótica | séc. V–XV | 2 |
+| Arte medieval e gótica | séc. V–XV | 1 |
 | Renascimento e Maneirismo | séc. XV–XVI | 5 |
-| Barroco | séc. XVII | 3 |
-| Rococó e Neoclassicismo | séc. XVIII | 4 |
+| Barroco | séc. XVII | 1 |
+| Rococó e Neoclassicismo | séc. XVIII | 3 |
 | Romantismo, Realismo e pintura acadêmica | séc. XIX e início do XX | 2 |
 | Impressionismo e pós-impressionismo | fim do séc. XIX | 4 |
-| Modernismo e fotografia documental | 1ª metade do séc. XX | 5 |
-| Arte contemporânea | pós-guerra ao presente | 1 |
+| Modernismo e fotografia documental | 1ª metade do séc. XX | 3 |
 
 Cada obra tem dois campos de classificação estilística:
 
@@ -92,8 +96,9 @@ O arquivo é **derivado**: nunca o edite. Altere o projeto e gere de novo.
 
 ## Trazer as reproduções das obras
 
-O acervo mostra espaços reservados até que as reproduções sejam incorporadas. Para as
-obras em domínio público isso é automático — **execute em uma máquina com internet**:
+As 21 obras já têm reprodução. O script abaixo serve para **repor uma imagem** por uma
+versão de melhor resolução, ou para trazer a reprodução de uma obra nova. Precisa de uma
+máquina com internet:
 
 ```bash
 python3 tools/baixar-obras.py --links      # lista os links de busca (não usa rede)
@@ -121,19 +126,6 @@ python3 tools/baixar-obras.py --obra obra-17 --forcar
 
 Se o resultado não corresponder à obra, ajuste o termo no dicionário `BUSCAS`, no topo
 do script, e rode de novo.
-
-### O que o script não baixa, e por quê
-
-| Obra | Motivo |
-| --- | --- |
-| `obra-10` Tarsila do Amaral | direitos autorais vigentes (falecimento em 1973) |
-| `obra-28` Candido Portinari | direitos autorais vigentes (falecimento em 1962) |
-| `obra-04` iluminura medieval | obra ainda não identificada |
-| `obra-07` Marguerite Gérard | obra específica ainda não identificada |
-| `obra-12` obra contemporânea | seleção ainda não feita |
-
-As duas primeiras exigem autorização dos detentores dos direitos e da instituição
-depositária. As três últimas exigem decisão de curadoria antes de qualquer download.
 
 ### Inserir uma imagem manualmente
 
@@ -342,16 +334,16 @@ partir dos dados, de modo que o acervo pode crescer sem mudanças no HTML.
    obras acrescentadas nesta etapa são: Fouquet, Solario, Giorgione, Tintoretto, Rubens
    (duas), Caravaggio, Greuze, Vigée Le Brun, Millet, Morisot, Cassatt (*O banho da
    criança*), Renoir, Klimt, Kollwitz e Portinari.
-1. Reproduções das obras: nenhuma imagem real foi incorporada ainda. Para as 23 obras em
-   domínio público, rode `python3 tools/baixar-obras.py` em uma máquina com internet e
-   confira cada resultado. Para Tarsila do Amaral e Portinari, é preciso obter
-   autorização dos detentores dos direitos.
-2. Obra de abertura: definir qual obra representa o projeto e substituir o espaço
-   reservado do hero.
-3. Registros incompletos por decisão editorial: `obra-04` (iluminura medieval),
-   `obra-07` (Marguerite Gérard), `obra-10` (Tarsila do Amaral), `obra-28` (Portinari)
-   e `obra-12` (contemporânea) estão com descrição, contexto e relação com a medicina
-   em pesquisa.
+1. **Créditos individuais das imagens.** Todas as 21 reproduções estão no site, mas o
+   campo `creditoImagem` traz um texto genérico apontando o Wikimedia Commons. É preciso
+   registrar, obra a obra, a autoria da fotografia, a licença e a URL da página de origem.
+   Sem isso o acervo não deve ser publicado.
+2. Obra de abertura: hoje é a *Loba Capitolina*, escolhida por abrir o percurso com a
+   ideia de sobrevivência. Para trocar, aponte o `src` da imagem do hero, em `index.html`,
+   para outro arquivo de `assets/obras/` e atualize o texto alternativo e a legenda.
+3. `obra-06` é uma **gravura de reprodução** segundo Étienne Aubry, não a pintura. É
+   preciso decidir se o acervo exibe a gravura — registrando gravador, data e coleção — ou
+   se busca a reprodução da pintura original.
 4. Datações e coleções marcadas "a confirmar" nas demais obras — conferir na ficha da
    instituição depositária. Atenção especial às obras com múltiplas versões conhecidas
    (Rubens, *Caridade Romana*; Renoir, *Maternidade*; Vigée Le Brun; Kollwitz; Millet):

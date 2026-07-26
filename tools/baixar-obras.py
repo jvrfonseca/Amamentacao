@@ -59,8 +59,6 @@ BUSCAS = {
     'obra-15': 'Giorgione La Tempesta Accademia',
     'obra-16': 'Tintoretto Origin of the Milky Way National Gallery',
     'obra-17': 'Rubens El nacimiento de la Via Lactea Prado',
-    'obra-18': 'Caravaggio Sette opere di Misericordia Napoli',
-    'obra-19': 'Rubens Roman Charity Cimon Pero',
     'obra-06': 'Etienne Aubry Les adieux a la nourrice',
     'obra-20': 'Jean-Baptiste Greuze La Mere bien-aimee',
     'obra-21': 'Vigee Le Brun autoportrait avec sa fille Julie Louvre',
@@ -77,11 +75,8 @@ BUSCAS = {
 
 # Obras deliberadamente não baixadas, com o motivo exibido ao usuário.
 NAO_BAIXAR = {
-    'obra-04': 'obra ainda não identificada — escolher a iluminura antes',
-    'obra-07': 'obra específica de Marguerite Gérard ainda não identificada',
-    'obra-10': 'Tarsila do Amaral (1897–1973): protegida por direitos autorais',
-    'obra-28': 'Candido Portinari (1903–1962): protegido por direitos autorais',
-    'obra-12': 'obra contemporânea ainda não selecionada',
+    # Todas as obras do acervo já possuem reprodução incorporada. As entradas
+    # aqui listadas orientam decisões futuras.
 }
 
 

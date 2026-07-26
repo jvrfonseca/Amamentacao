@@ -50,10 +50,10 @@ window.AcervoData.obras = [
     estilo: 'Escultura antiga — atribuição estilística em debate',
     tecnica: 'Bronze fundido',
     localizacao: 'Musei Capitolini, Roma',
-    imagem: './assets/obras/obra-01.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-01.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Escultura em bronze de uma loba em pé, com duas crianças sentadas sob seu ventre em posição de amamentação.',
-    creditoImagem: 'Crédito da reprodução a inserir. A obra pertence ao acervo dos Musei Capitolini, Roma.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['antiguidade', 'escultura', 'mito-fundacao', 'infancia'],
     palavrasChave: ['amamentação', 'aleitamento', 'roma', 'mito', 'bronze', 'nutrição', 'sobrevivência'],
     destaque: true,
@@ -84,10 +84,10 @@ window.AcervoData.obras = [
     estilo: 'Arte egípcia — Baixa Época e período ptolomaico',
     tecnica: 'Bronze (estatuetas do tipo também produzidas em faiança e outros materiais)',
     localizacao: 'Coleção a confirmar — o tipo está representado em diversos acervos',
-    imagem: './assets/obras/obra-02.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Estatueta de uma figura feminina sentada, com toucado, segurando no colo uma criança que leva a mão ao peito da mulher.',
-    creditoImagem: 'Crédito da reprodução a inserir. Selecionar um exemplar específico e registrar coleção e número de inventário.',
+    imagem: './assets/obras/obra-02.jpg',
+    imagemStatus: 'definitiva',
+    altTexto: 'Estatueta de bronze de uma figura feminina em pé, com toucado, segurando junto ao peito uma pequena figura infantil.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['antiguidade', 'escultura', 'espiritualidade', 'maternidade'],
     palavrasChave: ['amamentação', 'egito', 'ísis', 'hórus', 'divindade', 'maternidade', 'estatueta'],
     destaque: true,
@@ -95,7 +95,7 @@ window.AcervoData.obras = [
     notaVerificacao:
       'O tipo iconográfico é frequentemente associado à Baixa Época e ao período ptolomaico, com centenas de exemplares conhecidos. Antes da publicação definitiva, é necessário escolher um exemplar concreto e transcrever título, datação, material, coleção e número de inventário conforme a ficha do museu correspondente.',
     descricaoVisual:
-      'Figura feminina sentada em um trono, com toucado sobre a cabeça. No colo, uma criança de pequenas dimensões é sustentada por um dos braços, enquanto a outra mão da figura adulta sustenta o seio, aproximando-o da boca da criança.',
+      'Estatueta de bronze de uma figura feminina em pé, com toucado e um elemento circular sobre a cabeça, vestido longo e justo. Com os dois braços ela sustenta, na altura do peito, uma pequena figura infantil. A peça está exposta sobre um suporte cilíndrico claro.',
     contextoHistorico:
       'A representação da deusa Ísis amamentando seu filho Hórus é um dos tipos figurativos mais reproduzidos do Egito antigo, presente em estatuetas votivas de pequeno porte e em relevos. A cena associa maternidade, legitimidade e proteção divina. Esse modelo visual circulou amplamente pelo Mediterrâneo e é frequentemente citado por historiadores da arte na discussão sobre a longa duração das imagens de mulheres amamentando.',
     relacaoMedicina:
@@ -120,10 +120,10 @@ window.AcervoData.obras = [
     estilo: 'Gótico — escola sienesa',
     tecnica: 'Têmpera sobre madeira',
     localizacao: 'Museo Diocesano, Siena (a confirmar na ficha institucional)',
-    imagem: './assets/obras/obra-03.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-03.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher com manto, segurando no colo uma criança que mama e olha para fora da cena.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['idade-media', 'pintura', 'arte-sacra', 'maternidade'],
     palavrasChave: ['virgo lactans', 'amamentação', 'religião', 'siena', 'gótico', 'maternidade'],
     destaque: true,
@@ -143,36 +143,7 @@ window.AcervoData.obras = [
     referencias: ['ref-fildes-1986', 'ref-yalom-1997']
   },
 
-  {
-    id: 'obra-04',
-    titulo: 'Título a confirmar',
-    tituloOriginal: '',
-    artista: 'Autoria a confirmar',
-    ano: 'Data a confirmar',
-    movimento: 'idade-media',
-    estilo: 'Iluminura medieval — escola a confirmar',
-    tecnica: 'Iluminura sobre pergaminho (a confirmar)',
-    localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-04.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Imagem ainda não disponível.',
-    creditoImagem: 'Crédito a confirmar.',
-    categorias: ['idade-media', 'ilustracao', 'cotidiano', 'infancia'],
-    palavrasChave: ['manuscrito', 'iluminura', 'nascimento', 'cuidado', 'idade média'],
-    destaque: false,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Registro criado para receber uma iluminura medieval que represente cena de nascimento, cuidado ou alimentação infantil. Nenhuma informação foi atribuída por dedução. Preencher a partir da ficha do manuscrito escolhido.',
-    descricaoVisual: 'Descrição em pesquisa.',
-    contextoHistorico: 'Contexto em pesquisa.',
-    relacaoMedicina: 'Conteúdo em pesquisa.',
-    reflexao:
-      'Que aspectos do cuidado infantil aparecem nas imagens de uso cotidiano — e quais permanecem fora do que se considerava digno de representação?',
-    fontes: [],
-    referencias: []
-  },
-
-  /* ================ RENASCIMENTO E MANEIRISMO =================== */
+/* ================ RENASCIMENTO E MANEIRISMO =================== */
 
   {
     id: 'obra-05',
@@ -184,10 +155,10 @@ window.AcervoData.obras = [
     estilo: 'Renascimento italiano — escola lombarda',
     tecnica: 'Têmpera sobre tela, transferida de painel de madeira',
     localizacao: 'Museu Hermitage, São Petersburgo',
-    imagem: './assets/obras/obra-05.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-05.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma jovem mulher em ambiente escuro, com duas janelas ao fundo, amamentando uma criança que olha para o observador.',
-    creditoImagem: 'Crédito da reprodução a inserir. Obra do acervo do Museu Hermitage.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['renascimento', 'pintura', 'arte-sacra', 'maternidade'],
     palavrasChave: ['renascimento', 'amamentação', 'leonardo', 'hermitage', 'maternidade', 'atribuição'],
     destaque: true,
@@ -218,10 +189,10 @@ window.AcervoData.obras = [
     estilo: 'Gótico internacional e primeiro Renascimento francês',
     tecnica: 'Óleo sobre madeira',
     localizacao: 'Koninklijk Museum voor Schone Kunsten, Antuérpia (a confirmar)',
-    imagem: './assets/obras/obra-13.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-13.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher coroada, sentada em um trono, com uma das mamas descoberta e uma criança nua sobre o joelho, cercada por figuras de anjos vermelhos e azuis.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['renascimento', 'pintura', 'arte-sacra', 'corpo', 'maternidade'],
     palavrasChave: ['fouquet', 'melun', 'virgem', 'seio', 'corpo', 'gótico', 'frança'],
     destaque: true,
@@ -252,17 +223,17 @@ window.AcervoData.obras = [
     estilo: 'Renascimento italiano — escola lombarda',
     tecnica: 'Óleo sobre madeira',
     localizacao: 'Musée du Louvre, Paris (a confirmar)',
-    imagem: './assets/obras/obra-14.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-14.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher inclinada sobre uma criança nua deitada em uma almofada, que mama enquanto segura o corpo da mulher.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['renascimento', 'pintura', 'arte-sacra', 'maternidade', 'cotidiano'],
     palavrasChave: ['solario', 'louvre', 'virgo lactans', 'amamentação', 'renascimento', 'lombardia'],
     destaque: true,
     verificacao: 'a-confirmar',
     notaVerificacao: 'Confirmar datação, título adotado pela instituição e número de inventário junto ao museu.',
     descricaoVisual:
-      'Uma mulher de manto azul inclina-se sobre uma criança nua e robusta, deitada de costas sobre uma almofada verde. A criança mama, com uma das mãos apoiada no corpo da mulher e uma perna dobrada. A cena é próxima, sem cenário elaborado, e ocupa quase todo o quadro.',
+      'Uma mulher de manto azul e vestido vermelho inclina-se sobre uma criança nua e robusta, deitada de costas sobre uma almofada verde de borda bordada e borla. A criança mama, com uma das mãos apoiada no corpo da mulher e as pernas dobradas. Ao fundo, à esquerda, abre-se uma paisagem com rio, campos e arvoredo; à direita, troncos de árvores fecham a composição. No canto inferior direito lê-se a assinatura do pintor.',
     contextoHistorico:
       'A obra é um dos exemplos mais difundidos da Virgo lactans renascentista em versão íntima e doméstica. A composição elimina tronos, coroas e anjos: restam dois corpos e um gesto. Esse deslocamento acompanha uma tendência mais ampla do período, em que a devoção privada passa a demandar imagens de escala pequena e assunto próximo da vida familiar.',
     relacaoMedicina:
@@ -285,10 +256,10 @@ window.AcervoData.obras = [
     estilo: 'Renascimento veneziano',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Gallerie dell’Accademia, Veneza (a confirmar)',
-    imagem: './assets/obras/obra-15.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-15.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de paisagem com céu escuro e relâmpago; à direita, uma mulher seminua sentada na grama amamenta uma criança; à esquerda, um homem de pé observa.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['renascimento', 'pintura', 'maternidade', 'cotidiano', 'infancia'],
     palavrasChave: ['giorgione', 'veneza', 'paisagem', 'amamentação', 'enigma', 'interpretação'],
     destaque: false,
@@ -319,15 +290,15 @@ window.AcervoData.obras = [
     estilo: 'Maneirismo veneziano',
     tecnica: 'Óleo sobre tela',
     localizacao: 'The National Gallery, Londres (a confirmar)',
-    imagem: './assets/obras/obra-16.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-16.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher deitada entre nuvens, com jatos de leite saindo de seus seios; uma figura masculina aproxima uma criança de seu peito, cercados por aves e figuras aladas.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['renascimento', 'pintura', 'mito-fundacao', 'nutricao', 'corpo'],
     palavrasChave: ['tintoretto', 'via láctea', 'juno', 'hércules', 'mitologia', 'leite', 'maneirismo'],
     destaque: true,
     verificacao: 'a-confirmar',
-    notaVerificacao: 'Confirmar datação, dimensões e número de inventário junto à instituição. A tela conhecida hoje pode corresponder a fragmento de composição maior — verificar.',
+    notaVerificacao: 'Confirmar datação, dimensões e número de inventário junto à instituição. A tela conhecida hoje pode corresponder a fragmento de composição maior — verificar. A reprodução incorporada corresponde a um recorte da imagem, sem a faixa inferior.',
     descricaoVisual:
       'Uma mulher deitada sobre nuvens, com o corpo em diagonal, tem jatos de leite saindo de ambos os seios: um em direção ao alto, outro para baixo. Uma figura masculina alada aproxima de seu peito uma criança pequena. Ao redor, figuras infantis aladas, pavões e uma águia.',
     contextoHistorico:
@@ -354,17 +325,17 @@ window.AcervoData.obras = [
     estilo: 'Barroco flamengo',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Museo Nacional del Prado, Madri (a confirmar)',
-    imagem: './assets/obras/obra-17.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-17.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher sentada entre nuvens, com um jato de leite saindo de seu seio em direção ao céu escuro; ao lado, uma figura masculina, um carro puxado por pavões e uma criança.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['barroco', 'pintura', 'mito-fundacao', 'nutricao', 'corpo'],
     palavrasChave: ['rubens', 'prado', 'via láctea', 'juno', 'hércules', 'barroco', 'leite', 'mitologia'],
     destaque: true,
     verificacao: 'a-confirmar',
     notaVerificacao: 'Confirmar datação, dimensões e número de inventário junto ao museu.',
     descricaoVisual:
-      'Uma mulher de corpo pleno, sentada sobre nuvens, afasta a criança do peito; do seio descoberto parte um jato de leite que se dispersa em pontos luminosos contra o céu escuro. À esquerda, uma figura masculina barbada. Ao lado, um carro puxado por pavões. A luz incide fortemente sobre os corpos, deixando o fundo em penumbra.',
+      'Uma mulher de corpo pleno, sentada sobre nuvens, afasta do peito uma criança; do seio descoberto parte um jato de leite que se dispersa em pontos luminosos contra o céu escuro e estrelado. Atrás dela vê-se a roda dourada de um carro; à direita, dois pavões de asas abertas. À esquerda, uma figura masculina barbada, coroada de raios, apoia-se sobre uma águia. A luz incide fortemente sobre os corpos, deixando o fundo em penumbra.',
     contextoHistorico:
       'Rubens retoma, em pleno Barroco, o mesmo mito tratado por Tintoretto meio século antes, agora com a monumentalidade e o contraste dramático característicos de sua pintura. A obra integra o conjunto de temas mitológicos produzidos para decoração de residências reais, num contexto em que a erudição clássica era instrumento de prestígio político.',
     relacaoMedicina:
@@ -377,97 +348,29 @@ window.AcervoData.obras = [
     referencias: ['ref-yalom-1997']
   },
 
-  {
-    id: 'obra-18',
-    titulo: 'As Sete Obras de Misericórdia',
-    tituloOriginal: 'Sette opere di Misericordia',
-    artista: 'Michelangelo Merisi da Caravaggio',
-    ano: '1607 (a confirmar)',
-    movimento: 'barroco',
-    estilo: 'Barroco italiano — naturalismo caravaggesco',
-    tecnica: 'Óleo sobre tela',
-    localizacao: 'Pio Monte della Misericordia, Nápoles (a confirmar)',
-    imagem: './assets/obras/obra-18.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Pintura de cena noturna com várias figuras aglomeradas; no canto direito, uma mulher amamenta um homem idoso através das grades de uma janela, enquanto acima duas figuras aladas se sobrepõem.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
-    categorias: ['barroco', 'pintura', 'saude-publica', 'nutricao', 'trabalho', 'espiritualidade'],
-    palavrasChave: ['caravaggio', 'nápoles', 'misericórdia', 'caridade romana', 'fome', 'assistência', 'barroco'],
-    destaque: true,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Confirmar datação e condições de reprodução junto à instituição, que mantém a obra em seu local original. Descrever a cena da Caridade Romana como um dos episódios da composição, e não como seu tema principal.',
-    descricaoVisual:
-      'Cena noturna densamente povoada, iluminada por um facho de luz lateral. Diversas ações ocorrem simultaneamente em um espaço urbano estreito. No canto direito, atrás das grades de uma janela, um homem idoso aproxima o rosto do seio de uma mulher que está do lado de fora e volta o olhar para o lado. Acima, figuras aladas sobrepõem-se à cena.',
-    contextoHistorico:
-      'A obra foi encomendada por uma instituição napolitana de assistência e representa as sete obras de misericórdia corporais, entre elas alimentar os famintos e visitar os presos. Caravaggio condensa todas em uma única cena de rua, com figuras retiradas do cotidiano popular. O episódio da mulher que amamenta o pai encarcerado — a Caridade Romana — resolve dois preceitos em um só gesto.',
-    relacaoMedicina:
-      'A obra evidencia que, antes da existência de sistemas públicos de saúde e assistência, socorrer o faminto e o doente era atribuição de instituições religiosas e de caridade privada. O leite humano aparece aqui como o alimento disponível em situação de privação absoluta — o que também remete ao seu papel real: em contextos de fome e de água contaminada, era frequentemente o único alimento seguro ao alcance.',
-    reflexao:
-      'Quando alimentar quem tem fome depende da caridade, e não de política pública, quem fica de fora?',
-    fontes: [
-      { titulo: 'Ficha da obra', instituicao: 'Pio Monte della Misericordia, Nápoles', ano: '', url: '' }
-    ],
-    referencias: []
-  },
-
-  {
-    id: 'obra-19',
-    titulo: 'Caridade Romana (Cimon e Pero)',
-    tituloOriginal: 'Cimon and Pero (Roman Charity)',
-    artista: 'Peter Paul Rubens',
-    ano: 'Data a confirmar',
-    movimento: 'barroco',
-    estilo: 'Barroco flamengo',
-    tecnica: 'Óleo sobre tela',
-    localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-19.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Pintura de um homem idoso, seminu e com as mãos atadas atrás do corpo, aproximando o rosto do seio de uma jovem mulher sentada, que olha em direção a uma janela gradeada.',
-    creditoImagem: 'Crédito da reprodução a inserir. Verificar a versão reproduzida e a coleção correspondente.',
-    categorias: ['barroco', 'pintura', 'corpo', 'nutricao', 'familia'],
-    palavrasChave: ['rubens', 'caridade romana', 'cimon', 'pero', 'leite', 'prisão', 'virtude', 'barroco'],
-    destaque: false,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Rubens tratou este tema em mais de uma ocasião e existem versões de oficina e cópias. É indispensável identificar exatamente a versão reproduzida, com coleção, datação e número de inventário, antes da publicação.',
-    descricaoVisual:
-      'Em um ambiente escuro e fechado, um homem idoso, seminu, com os braços recolhidos atrás do corpo, aproxima o rosto do seio descoberto de uma jovem mulher sentada. Ela sustenta o próprio seio com uma das mãos e volta o olhar para uma abertura gradeada, atenta a algo fora da cena.',
-    contextoHistorico:
-      'O tema deriva de um relato da Antiguidade romana sobre uma jovem que alimenta com seu leite o pai condenado à morte por inanição. Entre os séculos XVI e XVIII, a cena foi pintada repetidamente na Europa como exemplo de piedade filial. Sua popularidade combinava justificativa moral e permissão para representar o corpo feminino desnudo em contexto erudito.',
-    relacaoMedicina:
-      'A cena lembra que a lactação humana foi, historicamente, também um recurso terapêutico e de subsistência para além do lactente: há registros do uso de leite humano na alimentação de doentes e convalescentes em diferentes períodos. Do ponto de vista contemporâneo, o episódio permite discutir o corpo lactante como objeto de demanda alheia — tema que reaparece, em outra chave, na história do trabalho das amas de leite.',
-    reflexao:
-      'O que separa, historicamente, o leite oferecido como cuidado do leite extraído como obrigação?',
-    fontes: [
-      { titulo: 'Ficha da versão reproduzida', instituicao: 'Instituição a confirmar', ano: '', url: '' }
-    ],
-    referencias: ['ref-yalom-1997']
-  },
-
-  /* ================= ROCOCÓ E NEOCLASSICISMO =================== */
+/* ================= ROCOCÓ E NEOCLASSICISMO =================== */
 
   {
     id: 'obra-06',
     titulo: 'A despedida da ama de leite',
     tituloOriginal: 'Les adieux à la nourrice',
-    artista: 'Étienne Aubry',
+    artista: 'Gravura segundo Étienne Aubry — gravador a confirmar',
     ano: '1776 (a confirmar)',
     movimento: 'rococo-neoclassicismo',
-    estilo: 'Pintura de gênero sentimental francesa',
-    tecnica: 'Óleo sobre tela',
+    estilo: 'Gravura de reprodução francesa do século XVIII',
+    tecnica: 'Gravura sobre papel, segundo pintura de Étienne Aubry',
     localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-06.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Pintura de um interior rústico com várias figuras reunidas em torno de uma criança pequena, que se volta para uma mulher sentada.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    imagem: './assets/obras/obra-06.jpg',
+    imagemStatus: 'definitiva',
+    altTexto: 'Gravura mostrando, ao ar livre, uma mulher montada em um burro com uma criança no colo, enquanto outra mulher estende os braços em sua direção.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['rococo-neoclassicismo', 'pintura', 'amas-de-leite', 'familia', 'trabalho'],
     palavrasChave: ['ama de leite', 'nourrice', 'frança', 'século xviii', 'família', 'trabalho', 'separação'],
     destaque: true,
     verificacao: 'a-confirmar',
-    notaVerificacao: 'Confirmar datação exata e coleção atual antes da publicação institucional.',
+    notaVerificacao: 'ATENÇÃO: a reprodução incorporada é uma gravura de reprodução, e não a pintura de Étienne Aubry. A legenda gravada traz o título e uma dedicatória à Condessa de Merle. É preciso decidir se o acervo exibe a gravura (registrando gravador, data e coleção) ou se busca a reprodução da pintura original. Datação e coleção a confirmar em ambos os casos.',
     descricaoVisual:
-      'Em um interior modesto, um grupo de adultos e crianças reúne-se em torno de uma criança pequena. Um casal em trajes urbanos ocupa um dos lados da composição; do outro, uma mulher sentada estende os braços em direção à criança, que se volta para ela.',
+      'Gravura em preto e branco. Ao ar livre, diante de uma construção rústica de telhado de palha, uma mulher em trajes urbanos e chapéu de plumas está montada em um burro, segurando uma criança pequena no colo. Outra mulher, de vestes simples, estende os braços em direção à criança. À esquerda, um homem de casaca observa, apoiado em um bastão; à direita, um segundo homem e uma vaca. Na margem inferior corre a legenda gravada com o título e uma dedicatória.',
     contextoHistorico:
       'Na França do século XVIII, o envio de recém-nascidos a amas de leite no campo era prática difundida, incluindo famílias urbanas de recursos modestos. A criança podia permanecer anos longe da casa de origem. A cena da separação entre a criança e a ama tornou-se tema pictórico em um momento em que a literatura, sobretudo a partir de Rousseau, passava a defender a amamentação pela própria mãe como dever natural e moral.',
     relacaoMedicina:
@@ -490,17 +393,17 @@ window.AcervoData.obras = [
     estilo: 'Pintura de gênero sentimental francesa',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-20.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-20.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher sentada, recostada e cercada por várias crianças pequenas que se agarram a seu corpo, enquanto um homem entra na cena com os braços abertos.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['rococo-neoclassicismo', 'pintura', 'familia', 'maternidade', 'cotidiano'],
     palavrasChave: ['greuze', 'família', 'maternidade', 'rousseau', 'sentimentalismo', 'frança'],
     destaque: false,
     verificacao: 'a-confirmar',
-    notaVerificacao: 'Confirmar datação, dimensões e coleção atual. A obra teve versões e gravuras de reprodução — identificar qual será reproduzida.',
+    notaVerificacao: 'Confirmar datação, dimensões e coleção atual. A obra teve versões e gravuras de reprodução — identificar qual será reproduzida. A imagem incorporada corresponde a um recorte da composição, e não ao quadro inteiro.',
     descricaoVisual:
-      'Uma mulher sentada, com o corpo recostado para trás, é cercada por várias crianças pequenas que se agarram a seus braços, colo e vestido. À esquerda, um homem entra na cena com os braços abertos. Ao fundo, figuras adultas observam. O ambiente é doméstico e desordenado.',
+      'Uma mulher recostada, de vestido claro, é cercada por seis crianças pequenas que se agarram a seus braços, colo, ombros e vestido; uma delas encosta o rosto no dela. Ao alto, à direita, um homem inclina-se sobre o grupo. À esquerda, um cesto de vime; ao pé da cena, tecidos caídos no chão.',
     contextoHistorico:
       'A pintura de gênero sentimental do século XVIII transformou a família em espetáculo moral: cenas domésticas eram exibidas em salões e comentadas por críticos como lições de virtude. Nesse contexto, a mãe cercada de filhos torna-se imagem de mérito, em oposição direta às práticas aristocráticas de delegar o cuidado a amas e criados.',
     relacaoMedicina:
@@ -523,10 +426,10 @@ window.AcervoData.obras = [
     estilo: 'Neoclassicismo francês',
     tecnica: 'Óleo sobre madeira',
     localizacao: 'Musée du Louvre, Paris (a confirmar)',
-    imagem: './assets/obras/obra-21.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-21.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher sentada abraçando uma criança que se apoia em seu colo e encosta o rosto no dela; ambas olham para fora da cena.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['rococo-neoclassicismo', 'pintura', 'maternidade', 'familia'],
     palavrasChave: ['vigée le brun', 'autorretrato', 'maternidade', 'louvre', 'neoclassicismo', 'mulheres artistas'],
     destaque: false,
@@ -547,38 +450,7 @@ window.AcervoData.obras = [
     referencias: []
   },
 
-  {
-    id: 'obra-07',
-    titulo: 'A mãe que amamenta',
-    tituloOriginal: 'La Mère nourrice',
-    artista: 'Marguerite Gérard',
-    ano: 'Data a confirmar (início do século XIX)',
-    movimento: 'rococo-neoclassicismo',
-    estilo: 'Pintura de gênero francesa — transição para o Neoclassicismo',
-    tecnica: 'Óleo sobre tela (a confirmar)',
-    localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-07.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Imagem ainda não disponível.',
-    creditoImagem: 'Crédito a confirmar.',
-    categorias: ['rococo-neoclassicismo', 'pintura', 'maternidade', 'cotidiano'],
-    palavrasChave: ['amamentação', 'maternidade', 'frança', 'interior doméstico', 'rousseau', 'mulheres artistas'],
-    destaque: false,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Título, datação, técnica e coleção pendentes de conferência. Marguerite Gérard produziu diversas cenas domésticas de maternidade; é necessário identificar a obra específica antes de publicar descrição visual.',
-    descricaoVisual: 'Descrição em pesquisa — a ser redigida a partir da reprodução definitiva.',
-    contextoHistorico:
-      'Entre o final do século XVIII e o início do XIX, cenas domésticas de maternidade ganham espaço na pintura europeia. A valorização do vínculo entre mãe e filho acompanha transformações na compreensão da infância e na organização da família burguesa. Contexto específico desta obra em pesquisa.',
-    relacaoMedicina:
-      'Conteúdo em pesquisa. A relação a ser desenvolvida diz respeito ao momento em que a amamentação materna passa a ser prescrita como conduta desejável por médicos e moralistas, com efeitos desiguais sobre mulheres de diferentes condições sociais.',
-    reflexao:
-      'Quando amamentar se torna um dever socialmente esperado, o que acontece com as mulheres que não podem cumpri-lo?',
-    fontes: [],
-    referencias: ['ref-rousseau-1762']
-  },
-
-  /* ========= ROMANTISMO, REALISMO E PINTURA ACADÊMICA ========== */
+/* ========= ROMANTISMO, REALISMO E PINTURA ACADÊMICA ========== */
 
   {
     id: 'obra-22',
@@ -590,10 +462,10 @@ window.AcervoData.obras = [
     estilo: 'Realismo francês — Escola de Barbizon',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-22.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-22.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher sentada à porta de uma casa rústica, dando de comer com uma colher a três crianças pequenas sentadas lado a lado em um degrau.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['romantismo-realismo', 'pintura', 'nutricao', 'infancia', 'trabalho', 'cotidiano'],
     palavrasChave: ['millet', 'realismo', 'campo', 'alimentação', 'pobreza', 'infância', 'barbizon'],
     destaque: true,
@@ -623,10 +495,10 @@ window.AcervoData.obras = [
     estilo: 'Pintura acadêmica brasileira',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-09.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-09.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher negra sentada ao ar livre, amamentando uma criança branca, com outra criança deitada sobre o solo ao seu lado.',
-    creditoImagem: 'Crédito da reprodução a inserir. Verificar condições de uso junto à instituição detentora.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['romantismo-realismo', 'pintura', 'amas-de-leite', 'trabalho', 'saude-materno-infantil'],
     palavrasChave: ['ama de leite', 'escravidão', 'brasil', 'desigualdade', 'trabalho', 'maternidade', 'racismo'],
     destaque: true,
@@ -659,10 +531,10 @@ window.AcervoData.obras = [
     estilo: 'Impressionismo — gravura de inspiração japonesa',
     tecnica: 'Água-forte, ponta-seca e água-tinta',
     localizacao: 'Exemplares em diversas coleções — indicar a coleção da reprodução utilizada',
-    imagem: './assets/obras/obra-08.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-08.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Gravura em linhas delicadas mostrando uma mulher inclinada sobre uma criança pequena que ela sustenta nos braços.',
-    creditoImagem: 'Crédito da reprodução a inserir, conforme a coleção do exemplar escolhido.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['impressionismo', 'gravura', 'maternidade', 'cotidiano', 'infancia'],
     palavrasChave: ['mary cassatt', 'gravura', 'maternidade', 'vínculo', 'cuidado', 'século xix'],
     destaque: true,
@@ -693,10 +565,10 @@ window.AcervoData.obras = [
     estilo: 'Impressionismo — influência da gravura japonesa',
     tecnica: 'Óleo sobre tela',
     localizacao: 'The Art Institute of Chicago (a confirmar)',
-    imagem: './assets/obras/obra-24.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-24.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura vista de cima mostrando uma mulher de vestido listrado sentada, com uma criança nua no colo, lavando um dos pés da criança em uma bacia.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['impressionismo', 'pintura', 'infancia', 'cotidiano', 'saude-materno-infantil'],
     palavrasChave: ['cassatt', 'banho', 'higiene', 'cuidado', 'chicago', 'impressionismo'],
     destaque: true,
@@ -726,10 +598,10 @@ window.AcervoData.obras = [
     estilo: 'Impressionismo francês',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Musée d’Orsay, Paris (a confirmar)',
-    imagem: './assets/obras/obra-23.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-23.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher sentada ao lado de um berço coberto por um véu translúcido, com a mão apoiada no rosto, observando um bebê que dorme.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['impressionismo', 'pintura', 'maternidade', 'infancia', 'cotidiano'],
     palavrasChave: ['morisot', 'berço', 'sono', 'maternidade', 'orsay', 'impressionismo', 'mulheres artistas'],
     destaque: true,
@@ -759,10 +631,10 @@ window.AcervoData.obras = [
     estilo: 'Impressionismo francês',
     tecnica: 'Técnica a confirmar conforme a versão (óleo, pastel e desenho)',
     localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-25.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Pintura de uma mulher sentada ao ar livre, com um lenço na cabeça, amamentando um bebê que segura o próprio pé com a mão.',
-    creditoImagem: 'Crédito da reprodução a inserir. Identificar a versão utilizada.',
+    imagem: './assets/obras/obra-25.jpg',
+    imagemStatus: 'definitiva',
+    altTexto: 'Pintura de uma mulher sentada ao ar livre, com chapéu de palha, amamentando um bebê enrolado em panos brancos que segura o próprio pé.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['impressionismo', 'pintura', 'maternidade', 'cotidiano', 'familia'],
     palavrasChave: ['renoir', 'amamentação', 'maternidade', 'impressionismo', 'frança', 'família'],
     destaque: false,
@@ -770,7 +642,7 @@ window.AcervoData.obras = [
     notaVerificacao:
       'O artista retomou este tema em diversas versões e técnicas, distribuídas por diferentes coleções. É indispensável identificar exatamente a versão reproduzida — com título, data, técnica, dimensões e coleção — antes da publicação.',
     descricaoVisual:
-      'Uma mulher sentada ao ar livre, com lenço na cabeça e vestido aberto no peito, sustenta no colo um bebê que mama enquanto segura o próprio pé com a mão. O ambiente é rural e a pincelada, solta.',
+      'Uma mulher sentada sobre um tronco, ao ar livre, com chapéu de palha e blusa alaranjada aberta no peito, sustenta no colo um bebê enrolado em panos brancos, que mama enquanto segura o próprio pé com a mão. Ela veste saia azul e botinas. Ao fundo, um muro claro e vegetação. No canto inferior direito lê-se a assinatura.',
     contextoHistorico:
       'A cena retoma um repertório visual antiquíssimo — a mulher que amamenta ao ar livre — despojado agora de qualquer atributo religioso ou mitológico. Trata-se de assunto doméstico e familiar, tratado como episódio da vida moderna. A insistência do artista no tema ao longo de anos indica seu interesse em fixar a cena como motivo pictórico, e não como registro documental.',
     relacaoMedicina:
@@ -785,40 +657,7 @@ window.AcervoData.obras = [
 
   /* ========= MODERNISMO E FOTOGRAFIA DOCUMENTAL =============== */
 
-  {
-    id: 'obra-10',
-    titulo: 'A Negra',
-    tituloOriginal: 'A Negra',
-    artista: 'Tarsila do Amaral',
-    ano: '1923',
-    movimento: 'modernismo',
-    estilo: 'Modernismo brasileiro',
-    tecnica: 'Óleo sobre tela',
-    localizacao: 'Museu de Arte Contemporânea da Universidade de São Paulo (a confirmar)',
-    imagem: './assets/obras/obra-10.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Imagem ainda não disponível.',
-    creditoImagem:
-      'Obra protegida por direitos autorais. Reprodução condicionada a autorização dos detentores dos direitos e da instituição depositária.',
-    categorias: ['modernismo', 'pintura', 'maternidade', 'corpo'],
-    palavrasChave: ['tarsila do amaral', 'modernismo', 'brasil', 'corpo', 'ama de leite', 'memória'],
-    destaque: false,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Registro incluído pela relevância para a discussão sobre a representação do corpo da mulher negra e a memória das amas de leite no Brasil. A leitura da obra é objeto de ampla bibliografia crítica, que deve ser consultada antes de redigir os textos definitivos. Reprodução da imagem depende de autorização.',
-    descricaoVisual:
-      'Descrição em pesquisa — a ser redigida com apoio da bibliografia crítica e da ficha institucional, evitando interpretação apressada.',
-    contextoHistorico:
-      'Contexto em pesquisa. A obra integra o momento inicial do modernismo brasileiro e é frequentemente discutida em relação às memórias de infância da artista e à representação de mulheres negras na arte do período.',
-    relacaoMedicina:
-      'Conteúdo em pesquisa. A relação a ser desenvolvida diz respeito à permanência, no imaginário visual brasileiro, da figura da mulher negra associada ao trabalho de amamentar.',
-    reflexao:
-      'De que maneira a posição social da mulher representada interfere na leitura que fazemos da cena?',
-    fontes: [],
-    referencias: ['ref-brasil-amas']
-  },
-
-  {
+{
     id: 'obra-26',
     titulo: 'As Três Idades da Mulher',
     tituloOriginal: 'Le tre età della donna',
@@ -828,10 +667,10 @@ window.AcervoData.obras = [
     estilo: 'Secessão vienense / Simbolismo',
     tecnica: 'Óleo sobre tela',
     localizacao: 'Galleria Nazionale d’Arte Moderna e Contemporanea, Roma (a confirmar)',
-    imagem: './assets/obras/obra-26.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-26.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Pintura de uma mulher jovem de pé segurando no colo uma criança adormecida; ao lado, uma mulher idosa de cabeça baixa, sobre fundo ornamentado.',
-    creditoImagem: 'Crédito da reprodução a inserir.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['modernismo', 'pintura', 'maternidade', 'corpo', 'infancia'],
     palavrasChave: ['klimt', 'viena', 'simbolismo', 'idades', 'maternidade', 'corpo', 'envelhecimento'],
     destaque: true,
@@ -861,10 +700,10 @@ window.AcervoData.obras = [
     estilo: 'Expressionismo alemão — gravura',
     tecnica: 'Água-forte e ponta-seca (exemplares em diversos estados)',
     localizacao: 'Exemplares em diversas coleções — indicar a do exemplar reproduzido',
-    imagem: './assets/obras/obra-27.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-27.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Gravura em tons escuros de uma mulher nua, curvada e agachada, envolvendo com os braços e o rosto o corpo de uma criança.',
-    creditoImagem: 'Crédito da reprodução a inserir, conforme a coleção do exemplar escolhido.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['modernismo', 'gravura', 'saude-materno-infantil', 'infancia', 'maternidade'],
     palavrasChave: ['kollwitz', 'luto', 'mortalidade infantil', 'expressionismo', 'alemanha', 'pobreza'],
     destaque: true,
@@ -885,41 +724,7 @@ window.AcervoData.obras = [
     referencias: []
   },
 
-  {
-    id: 'obra-28',
-    titulo: 'Criança Morta',
-    tituloOriginal: 'Criança Morta',
-    artista: 'Candido Portinari',
-    ano: '1944 (a confirmar)',
-    movimento: 'modernismo',
-    estilo: 'Modernismo brasileiro — série Retirantes',
-    tecnica: 'Óleo sobre tela',
-    localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-28.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Imagem ainda não disponível.',
-    creditoImagem:
-      'Obra protegida por direitos autorais. Reprodução condicionada a autorização dos detentores dos direitos e da instituição depositária.',
-    categorias: ['modernismo', 'pintura', 'saude-materno-infantil', 'nutricao', 'saude-publica', 'infancia'],
-    palavrasChave: ['portinari', 'retirantes', 'seca', 'fome', 'mortalidade infantil', 'brasil', 'desnutrição'],
-    destaque: false,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Confirmar datação, dimensões e coleção atual. A obra integra a série Retirantes. Reprodução depende de autorização dos detentores dos direitos. Descrição visual a ser redigida a partir da reprodução autorizada.',
-    descricaoVisual: 'Descrição em pesquisa — a ser redigida a partir da reprodução definitiva.',
-    contextoHistorico:
-      'A série Retirantes trata do deslocamento forçado de famílias do sertão nordestino em razão da seca e da fome. Produzida na década de 1940, integra um momento em que a arte brasileira assumiu explicitamente a denúncia das desigualdades regionais e sociais do país.',
-    relacaoMedicina:
-      'A desnutrição infantil no Brasil foi, ao longo do século XX, uma das principais causas de mortalidade na primeira infância, com forte concentração regional. O tema conecta diretamente arte e saúde pública: as políticas de segurança alimentar, de acompanhamento nutricional e de incentivo ao aleitamento materno respondem ao mesmo problema que a série representa.',
-    reflexao:
-      'De que maneira a arte pode tornar visível um problema de saúde pública que os números sozinhos não comunicam?',
-    fontes: [
-      { titulo: 'Ficha da obra', instituicao: 'Instituição a confirmar', ano: '', url: '' }
-    ],
-    referencias: []
-  },
-
-  {
+{
     id: 'obra-11',
     titulo: 'Mãe migrante',
     tituloOriginal: 'Migrant Mother',
@@ -929,10 +734,10 @@ window.AcervoData.obras = [
     estilo: 'Fotografia documental',
     tecnica: 'Fotografia',
     localizacao: 'Library of Congress, Washington (Farm Security Administration/OWI Collection)',
-    imagem: './assets/obras/obra-11.svg',
-    imagemStatus: 'placeholder',
+    imagem: './assets/obras/obra-11.jpg',
+    imagemStatus: 'definitiva',
     altTexto: 'Fotografia em preto e branco de uma mulher sentada, com a mão junto ao rosto, acompanhada de crianças que se apoiam em seus ombros e de um bebê em seu colo.',
-    creditoImagem: 'Library of Congress, Prints & Photographs Division, FSA/OWI Collection. Verificar a legenda oficial do registro.',
+    creditoImagem: 'Reprodução obtida no Wikimedia Commons. Autoria da fotografia, licença e página de origem a registrar individualmente antes da publicação.',
     categorias: ['modernismo', 'fotografia', 'documento', 'nutricao', 'saude-publica'],
     palavrasChave: ['fotografia', 'documento', 'nutrição', 'pobreza', 'saúde pública', 'infância', 'estados unidos'],
     destaque: true,
@@ -953,36 +758,6 @@ window.AcervoData.obras = [
     referencias: ['ref-stevens-2009']
   },
 
-  /* ====================== ARTE CONTEMPORÂNEA =================== */
-
-  {
-    id: 'obra-12',
-    titulo: 'Título a confirmar',
-    tituloOriginal: '',
-    artista: 'Autoria a confirmar',
-    ano: 'Data a confirmar',
-    movimento: 'contemporaneidade',
-    estilo: 'Arte contemporânea — linguagem a confirmar',
-    tecnica: 'Técnica a confirmar',
-    localizacao: 'Coleção a confirmar',
-    imagem: './assets/obras/obra-12.svg',
-    imagemStatus: 'placeholder',
-    altTexto: 'Imagem ainda não disponível.',
-    creditoImagem: 'Crédito a confirmar. Obras contemporâneas exigem autorização expressa para reprodução.',
-    categorias: ['contemporaneidade', 'fotografia', 'saude-publica', 'maternidade'],
-    palavrasChave: ['contemporâneo', 'aleitamento', 'políticas públicas', 'curadoria'],
-    destaque: false,
-    verificacao: 'a-confirmar',
-    notaVerificacao:
-      'Espaço reservado para obra, fotografia ou documento contemporâneo. A seleção depende de curadoria e de autorização de uso. Nenhuma informação foi preenchida por dedução.',
-    descricaoVisual: 'Descrição em pesquisa.',
-    contextoHistorico: 'Contexto em pesquisa.',
-    relacaoMedicina: 'Conteúdo em pesquisa.',
-    reflexao:
-      'Que imagens da amamentação circulam hoje, quem as produz e a que finalidades elas servem?',
-    fontes: [],
-    referencias: []
-  }
 ];
 
 /* Rótulos legíveis para as categorias usadas nos filtros.
@@ -996,8 +771,7 @@ window.AcervoData.categorias = {
     { id: 'rococo-neoclassicismo', rotulo: 'Rococó e Neoclassicismo' },
     { id: 'romantismo-realismo', rotulo: 'Romantismo e Realismo' },
     { id: 'impressionismo', rotulo: 'Impressionismo' },
-    { id: 'modernismo', rotulo: 'Modernismo' },
-    { id: 'contemporaneidade', rotulo: 'Contemporânea' }
+    { id: 'modernismo', rotulo: 'Modernismo' }
   ],
   temas: [
     { id: 'arte-sacra', rotulo: 'Arte sacra' },

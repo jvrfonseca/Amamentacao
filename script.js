@@ -93,7 +93,7 @@
     img.addEventListener('error', function () {
       if (img.dataset.falhou) return;
       img.dataset.falhou = '1';
-      img.src = './assets/obras/obra-12.svg';
+      img.src = './assets/obras/sem-imagem.svg';
       img.alt = 'Imagem indisponível para a obra ' + obra.titulo + '.';
     });
     return img;

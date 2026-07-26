@@ -77,7 +77,7 @@ window.AcervoData.timeline = [
     descricao:
       'A publicação de "Emílio, ou Da educação", de Jean-Jacques Rousseau, contribui para transformar a amamentação pela própria mãe em dever moral e natural no debate europeu, com efeitos duradouros sobre a expectativa social dirigida às mulheres.',
     fontes: [{ titulo: 'Émile ou De l’éducation', instituicao: 'Jean-Jacques Rousseau', ano: '1762', url: '' }],
-    obrasRelacionadas: ['obra-06', 'obra-07']
+    obrasRelacionadas: ['obra-06']
   },
   {
     id: 'evento-06',
@@ -179,7 +179,7 @@ window.AcervoData.timeline = [
   },
   {
     id: 'evento-14',
-    movimento: 'contemporaneidade',
+    movimento: 'modernismo',
     data: '2001',
     titulo: 'Recomendação de aleitamento materno exclusivo até os seis meses',
     tipo: 'medicina',
@@ -187,11 +187,11 @@ window.AcervoData.timeline = [
     descricao:
       'A Organização Mundial da Saúde passa a recomendar o aleitamento materno exclusivo durante os primeiros seis meses de vida, com continuidade acompanhada de alimentação complementar adequada.',
     fontes: [{ titulo: 'Recomendação sobre duração do aleitamento materno exclusivo', instituicao: 'Organização Mundial da Saúde', ano: '2001', url: '' }],
-    obrasRelacionadas: ['obra-12']
+    obrasRelacionadas: []
   },
   {
     id: 'evento-15',
-    movimento: 'contemporaneidade',
+    movimento: 'modernismo',
     data: '2016',
     titulo: 'Série sobre amamentação em periódico médico internacional',
     tipo: 'medicina',
@@ -201,7 +201,7 @@ window.AcervoData.timeline = [
     fontes: [
       { titulo: 'Breastfeeding in the 21st century: epidemiology, mechanisms, and lifelong effect', instituicao: 'The Lancet', ano: '2016', url: '' }
     ],
-    obrasRelacionadas: ['obra-12']
+    obrasRelacionadas: []
   }
 ];
 

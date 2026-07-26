@@ -37,14 +37,14 @@ window.AcervoData.movimentos = [
     intervalo: 'Séculos V–XV',
     estiloResumo: 'Bizantino, românico, gótico e gótico internacional',
     introducao:
-      'Na Europa medieval, a imagem da mulher que amamenta ganha função devocional. O tipo iconográfico da Virgo lactans — a Virgem que amamenta — difunde-se a partir do século XIII, em painéis de fundo dourado, sem profundidade e sem ambiente naturalista: o que importa não é a cena verossímil, mas o vínculo representado. Fora do universo religioso, iluminuras registram nascimentos e cuidados infantis.',
+      'Na Europa medieval, a imagem da mulher que amamenta ganha função devocional. O tipo iconográfico da Virgo lactans — a Virgem que amamenta — difunde-se a partir do século XIII, em painéis de fundo dourado, sem profundidade e sem ambiente naturalista: o que importa não é a cena verossímil, mas o vínculo representado.',
     contextoMedico:
       'A medicina do período retoma e comenta a herança greco-romana e árabe. Discutia-se a qualidade do leite, a alimentação e o comportamento da nutriz, os sinais de que uma ama seria adequada e o momento do desmame. A mortalidade infantil era elevada, e a alimentação do lactente figurava entre as principais preocupações práticas das famílias.',
     transformacao:
       'A amamentação passa a ocupar lugar central na imagem religiosa europeia, com forte carga simbólica e pouca preocupação naturalista.',
     reflexao:
       'Quando uma prática cotidiana se torna imagem sagrada, o que se torna mais visível — e o que passa a ser difícil de representar?',
-    obras: ['obra-03', 'obra-04']
+    obras: ['obra-03']
   },
 
   {
@@ -69,14 +69,14 @@ window.AcervoData.movimentos = [
     intervalo: 'Século XVII',
     estiloResumo: 'Barroco italiano, flamengo e espanhol',
     introducao:
-      'O Barroco trabalha com contrastes intensos de luz e sombra, diagonais, corpos em movimento e apelo direto ao observador. O leite aparece aqui em três registros: o mito clássico, a caridade e a devoção. É também o período em que a figura da mulher que amamenta um adulto — a Caridade Romana — se torna tema recorrente, deslocando a amamentação do campo da maternidade para o da virtude e da sobrevivência.',
+      'O Barroco trabalha com contrastes intensos de luz e sombra, diagonais, corpos em movimento e apelo direto ao observador. Neste acervo o período é representado pela via do mito: o leite aparece como matéria capaz de originar o mundo, em composição de grande escala destinada à decoração palaciana. Outros usos barrocos do tema — em especial a Caridade Romana, em que uma mulher amamenta um adulto — não integram esta seleção.',
     contextoMedico:
       'A prática de entregar recém-nascidos a amas de leite permanece difundida na Europa, com forte diferenciação social. Multiplicam-se as instituições que recebiam crianças abandonadas — as casas de expostos e a "roda" —, cuja sobrevivência dependia de conseguir nutrizes. Os registros dessas instituições estão entre as fontes mais utilizadas por historiadores para estimar a mortalidade infantil do período.',
     transformacao:
-      'O leite deixa de ser apenas símbolo devocional e passa a encenar também virtude cívica, caridade e mito — com dramaticidade deliberada.',
+      'O leite deixa de ser apenas símbolo devocional e passa a encenar o mito, em grande escala e com dramaticidade deliberada.',
     reflexao:
-      'Por que a imagem de uma mulher amamentando passa a ser usada para representar virtude, e não apenas maternidade?',
-    obras: ['obra-17', 'obra-18', 'obra-19']
+      'Por que o leite materno serviu, na pintura erudita do período, para explicar a própria origem do mundo?',
+    obras: ['obra-17']
   },
 
   {
@@ -92,7 +92,7 @@ window.AcervoData.movimentos = [
       'A amamentação deixa de ser assunto privado e torna-se objeto de debate público, de prescrição médica e de encenação moral.',
     reflexao:
       'Quando uma recomendação de saúde ignora as condições materiais de quem deve segui-la, sobre quem recai a responsabilidade?',
-    obras: ['obra-06', 'obra-20', 'obra-21', 'obra-07']
+    obras: ['obra-06', 'obra-20', 'obra-21']
   },
 
   {
@@ -133,29 +133,14 @@ window.AcervoData.movimentos = [
     intervalo: 'Primeira metade do século XX',
     estiloResumo: 'Simbolismo tardio, expressionismo, modernismos, fotografia documental',
     introducao:
-      'Os modernismos rompem com a representação naturalista e tratam a maternidade em chave simbólica, política ou memorialística. Ao lado da pintura, a fotografia documental passa a produzir imagens destinadas a sustentar argumentos públicos sobre fome, pobreza e assistência. É também o momento em que a arte deixa de idealizar a maternidade e passa a representar a perda, o luto e a violência.',
+      'Os modernismos rompem com a representação naturalista e tratam a maternidade em chave simbólica e política. Ao lado da pintura e da gravura, a fotografia documental passa a produzir imagens destinadas a sustentar argumentos públicos sobre fome, pobreza e assistência. É também o momento em que a arte deixa de idealizar a maternidade e passa a representar a perda e o luto.',
     contextoMedico:
-      'Após décadas de queda nas taxas de aleitamento em vários países, organismos internacionais passam a atuar de forma coordenada. A mortalidade infantil torna-se indicador central de saúde pública, e a desnutrição infantil, objeto de programas de Estado. No Brasil, o tema atravessa a discussão sobre desigualdade regional e acesso à assistência.',
+      'Após décadas de queda nas taxas de aleitamento em vários países, organismos internacionais passam a atuar de forma coordenada. A mortalidade infantil torna-se indicador central de saúde pública, e a desnutrição infantil, objeto de programas de Estado.',
     transformacao:
       'A imagem da maternidade deixa de ser necessariamente serena: perda, fome e desigualdade entram no campo do representável.',
     reflexao:
       'O que se ganha, e o que se arrisca, quando imagens de sofrimento são usadas como argumento em saúde pública?',
-    obras: ['obra-10', 'obra-26', 'obra-27', 'obra-28', 'obra-11']
+    obras: ['obra-26', 'obra-27', 'obra-11']
   },
 
-  {
-    id: 'contemporaneidade',
-    titulo: 'Arte contemporânea',
-    intervalo: 'Do pós-guerra ao presente',
-    estiloResumo: 'Fotografia, performance, arte contemporânea, imagem digital',
-    introducao:
-      'As representações contemporâneas da amamentação circulam sobretudo em fotografia, publicidade e redes digitais. Convivem imagens de idealização, campanhas de saúde, registros documentais, obras de artistas que tratam do próprio corpo e disputas públicas sobre amamentar em espaços coletivos. Esta seção do acervo está em curadoria.',
-    contextoMedico:
-      'A recomendação atual de organismos internacionais é de aleitamento materno exclusivo nos primeiros seis meses de vida, com continuidade acompanhada de alimentação complementar. O debate contemporâneo trata de licença-maternidade, apoio no retorno ao trabalho, bancos de leite humano, assistência qualificada, desigualdade de acesso e respeito às diferentes experiências e possibilidades de cada família.',
-    transformacao:
-      'A discussão desloca-se do dever individual para as condições sociais que tornam a amamentação possível — ou impossível.',
-    reflexao:
-      'Que condições concretas precisam existir para que amamentar seja uma escolha, e não uma imposição ou um privilégio?',
-    obras: ['obra-12']
-  }
 ];
