@@ -76,6 +76,18 @@ python3 -m http.server 8000
 
 Depois acesse **http://localhost:8000**.
 
+### Gerar uma versão de página única (para enviar ou apresentar)
+
+```bash
+python3 tools/gerar-preview.py
+```
+
+Gera `preview/amamentacao-e-arte.html`: um único arquivo com estilo, dados, script,
+fontes e imagens embutidos, sem nenhuma requisição externa. Serve para enviar por
+e-mail, abrir com duplo clique em qualquer computador ou hospedar em qualquer lugar.
+
+O arquivo é **derivado**: nunca o edite. Altere o projeto e gere de novo.
+
 ---
 
 ## Estrutura dos arquivos
@@ -97,6 +109,7 @@ assets/
   icons/                    (reservado)
 tools/
   gerar-placeholders.py     gera os espaços reservados de imagem
+  gerar-preview.py          empacota o site em um único HTML autônomo
 README.md
 ```
 
