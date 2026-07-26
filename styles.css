@@ -1690,3 +1690,53 @@ button { font: inherit; color: inherit; }
   .shell { box-shadow: none; }
   body { background: #fff; }
 }
+
+/* Crédito por obra — lista longa, ritmo tabular e legível. */
+.creditos-obras {
+  padding-top: var(--esp-xl);
+  margin-top: var(--esp-lg);
+  border-top: 1px solid var(--cor-linha);
+}
+
+.creditos-obras__estado {
+  margin-bottom: var(--esp-md);
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+}
+
+.creditos-lista {
+  display: grid;
+  gap: 0;
+  max-width: 92ch;
+  border-top: 1px solid var(--cor-linha);
+}
+
+.creditos-lista__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) auto;
+  gap: var(--esp-sm);
+  align-items: baseline;
+  padding: var(--esp-xs) 0;
+  border-bottom: 1px solid var(--cor-linha);
+}
+
+.creditos-lista__obra {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-base);
+  font-weight: 600;
+}
+
+.creditos-lista__credito {
+  font-size: var(--texto-sm);
+  color: var(--cor-texto-suave);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .creditos-lista__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--esp-3xs);
+  }
+
+  .creditos-lista__item .selo-pendente { justify-self: start; }
+}

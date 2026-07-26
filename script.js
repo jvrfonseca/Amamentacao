@@ -596,6 +596,40 @@
     });
   }
 
+  /* Créditos por obra: a seção se mantém verdadeira sozinha, antes e depois
+     de as reproduções serem incorporadas. */
+  function montarCreditosObras() {
+    var lista = $('#creditos-lista');
+    var estado = $('#creditos-estado');
+    if (!lista) return;
+
+    var comImagem = OBRAS.filter(function (obra) { return obra.imagemStatus === 'definitiva'; }).length;
+
+    if (estado) {
+      estado.textContent = comImagem === 0
+        ? 'Nenhuma das ' + OBRAS.length + ' obras teve a reprodução incorporada até o momento.'
+        : comImagem + ' de ' + OBRAS.length + ' obras com reprodução incorporada; ' +
+          (OBRAS.length - comImagem) + ' ainda com espaço reservado.';
+    }
+
+    OBRAS.forEach(function (obra) {
+      var item = criar('li', 'creditos-lista__item');
+
+      var identificacao = criar('span', 'creditos-lista__obra');
+      identificacao.textContent = obra.titulo + ' — ' + obra.artista;
+      item.appendChild(identificacao);
+
+      item.appendChild(criar('span', 'creditos-lista__credito',
+        obra.creditoImagem || 'Crédito a confirmar.'));
+
+      if (obra.imagemStatus === 'placeholder') {
+        item.appendChild(criar('span', 'selo-pendente', 'sem reprodução'));
+      }
+
+      lista.appendChild(item);
+    });
+  }
+
   /* ==================== 9. FICHA DA OBRA (MODAL) ======================= */
 
   var modal = $('#modal');
@@ -851,6 +885,7 @@
     iniciarAcervo();
     montarReflexoes();
     montarReferencias();
+    montarCreditosObras();
     iniciarModal();
     iniciarRevelacao();
     iniciarSecaoAtual();

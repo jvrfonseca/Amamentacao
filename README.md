@@ -90,6 +90,52 @@ O arquivo é **derivado**: nunca o edite. Altere o projeto e gere de novo.
 
 ---
 
+## Trazer as reproduções das obras
+
+O acervo mostra espaços reservados até que as reproduções sejam incorporadas. Para as
+obras em domínio público isso é automático — **execute em uma máquina com internet**:
+
+```bash
+python3 tools/baixar-obras.py --simular    # mostra o que seria baixado
+python3 tools/baixar-obras.py              # baixa de fato
+```
+
+O script busca cada obra no Wikimedia Commons, baixa uma versão de até 1600 px para
+`assets/obras/<id>.jpg`, lê autoria, licença e fonte dos metadados do próprio Commons e
+atualiza `imagem`, `imagemStatus` e `creditoImagem` em `data/obras.js`. Também escreve
+`assets/obras/CREDITOS.md` com o arquivo e a página de origem de cada imagem.
+
+**Confira cada imagem antes de publicar.** A busca é automática e pode trazer o arquivo
+errado, sobretudo nas obras com várias versões e cópias (Rubens *Caridade Romana*,
+Renoir, Vigée Le Brun, Kollwitz, Millet). Para refazer uma só:
+
+```bash
+python3 tools/baixar-obras.py --obra obra-17 --forcar
+```
+
+Se o resultado não corresponder à obra, ajuste o termo no dicionário `BUSCAS`, no topo
+do script, e rode de novo.
+
+### O que o script não baixa, e por quê
+
+| Obra | Motivo |
+| --- | --- |
+| `obra-10` Tarsila do Amaral | direitos autorais vigentes (falecimento em 1973) |
+| `obra-28` Candido Portinari | direitos autorais vigentes (falecimento em 1962) |
+| `obra-04` iluminura medieval | obra ainda não identificada |
+| `obra-07` Marguerite Gérard | obra específica ainda não identificada |
+| `obra-12` obra contemporânea | seleção ainda não feita |
+
+As duas primeiras exigem autorização dos detentores dos direitos e da instituição
+depositária. As três últimas exigem decisão de curadoria antes de qualquer download.
+
+### Inserir uma imagem manualmente
+
+Vale para qualquer obra, inclusive as de fora do Commons: siga
+"Trocar um espaço reservado pela reprodução real", mais abaixo.
+
+---
+
 ## Estrutura dos arquivos
 
 ```
@@ -108,6 +154,7 @@ assets/
   logos/                    favicon
   icons/                    (reservado)
 tools/
+  baixar-obras.py           baixa as reproduções em domínio público do Commons
   gerar-placeholders.py     gera os espaços reservados de imagem
   gerar-preview.py          empacota o site em um único HTML autônomo
 README.md
@@ -289,8 +336,10 @@ partir dos dados, de modo que o acervo pode crescer sem mudanças no HTML.
    obras acrescentadas nesta etapa são: Fouquet, Solario, Giorgione, Tintoretto, Rubens
    (duas), Caravaggio, Greuze, Vigée Le Brun, Millet, Morisot, Cassatt (*O banho da
    criança*), Renoir, Klimt, Kollwitz e Portinari.
-1. Reproduções das obras: nenhuma imagem real foi incorporada. Verificar domínio público
-   ou obter autorização, especialmente para as obras dos séculos XX e XXI.
+1. Reproduções das obras: nenhuma imagem real foi incorporada ainda. Para as 23 obras em
+   domínio público, rode `python3 tools/baixar-obras.py` em uma máquina com internet e
+   confira cada resultado. Para Tarsila do Amaral e Portinari, é preciso obter
+   autorização dos detentores dos direitos.
 2. Obra de abertura: definir qual obra representa o projeto e substituir o espaço
    reservado do hero.
 3. Registros incompletos por decisão editorial: `obra-04` (iluminura medieval),
