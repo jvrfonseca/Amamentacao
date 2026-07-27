@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Galeria — Amamentação e Arte</title>
+  <meta name="description" content="Todas as obras do acervo em ordem cronológica, com filtros por período, busca e ficha completa de cada obra.">
+
+  <link rel="canonical" href="https://exemplo.org/amamentacao-e-arte/galeria.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Amamentação e Arte">
+  <meta property="og:title" content="Galeria — Amamentação e Arte">
+  <meta property="og:description" content="Obras que retratam a amamentação, da Antiguidade ao início do século XX.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="./assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/fonts/crimson-text-600-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/lato-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="container topo__inner">
+      <a class="marca" href="./index.html">
+        <span class="marca__nome">amamentação e arte<span class="marca__ponto">.</span></span>
+        <span class="marca__linha">acervo digital educativo</span>
+      </a>
+
+      <button class="menu-botao" id="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-botao__barras" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Navegação principal">
+        <ul class="menu__lista">
+          <li><a href="./index.html">Início</a></li>
+          <li><a href="./medicina.html">Amamentação e Medicina</a></li>
+          <li><a href="./historia.html">História e Arte</a></li>
+          <li><a href="./galeria.html" aria-current="page">Galeria</a></li>
+          <li><a href="./sobre.html">Sobre o Projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <div class="container cabecalho-pagina">
+      <p class="rotulo">Galeria</p>
+      <h1>O acervo completo</h1>
+      <p class="linha-fina">
+        <span data-total-obras>20</span> obras em ordem cronológica, da Antiguidade ao início
+        do século XX, em pintura, escultura e gravura. Selecione uma obra para ver a ficha
+        completa, o contexto e a pergunta de reflexão.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="ferramentas">
+        <div class="busca">
+          <label for="busca">Buscar por título, artista, período ou palavra-chave</label>
+          <input type="search" id="busca" name="busca" autocomplete="off"
+                 placeholder="ex.: ama de leite, Rubens, gravura">
+        </div>
+
+        <div>
+          <button class="filtros-botao" id="filtros-botao" type="button"
+                  aria-expanded="false" aria-controls="filtros">
+            Filtrar por período
+          </button>
+          <div class="filtros" id="filtros" role="group" aria-label="Filtrar por período">
+            <!-- gerado por js/galeria.js a partir dos períodos cadastrados -->
+          </div>
+        </div>
+
+        <div class="ferramentas__estado">
+          <p class="contador" id="contador" role="status" aria-live="polite"></p>
+          <button class="botao botao--texto" type="button" data-limpar>Limpar filtros</button>
+        </div>
+      </div>
+
+      <ul class="grade" id="grade"><!-- gerado por js/galeria.js --></ul>
+
+      <div class="vazio" id="vazio" hidden>
+        <p class="vazio__titulo">Nenhuma obra corresponde a esta combinação.</p>
+        <p>Tente outros termos de busca ou selecione outro período.</p>
+        <button class="botao botao--vazado" type="button" data-limpar>Limpar filtros</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape__grade">
+        <div class="rodape__marca">
+          <p class="marca__nome">amamentação e arte<span class="marca__ponto">.</span></p>
+          <p class="rodape__desc">Acervo digital educativo sobre arte, história e medicina.</p>
+        </div>
+
+        <nav class="rodape__nav" aria-label="Navegação do rodapé">
+          <h2 class="rodape__titulo">Navegação</h2>
+          <ul>
+            <li><a href="./medicina.html">Amamentação e Medicina</a></li>
+            <li><a href="./historia.html">História e Arte</a></li>
+            <li><a href="./galeria.html">Galeria</a></li>
+            <li><a href="./sobre.html">Sobre o Projeto</a></li>
+          </ul>
+        </nav>
+
+        <div class="rodape__info">
+          <h2 class="rodape__titulo">Contato</h2>
+          <p>Instituição a confirmar</p>
+          <p>Contato a confirmar</p>
+        </div>
+      </div>
+
+      <p class="rodape__base">
+        <span>&copy; <span id="ano"></span> Amamentação e Arte</span>
+        <span>Projeto educativo, sem fins comerciais</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ======================== FICHA DA OBRA ======================== -->
+  <div class="ficha" id="ficha" hidden>
+    <div class="ficha__fundo" data-fechar-ficha></div>
+
+    <div class="ficha__caixa" role="dialog" aria-modal="true" aria-labelledby="ficha-titulo">
+      <div class="ficha__topo">
+        <p class="ficha__posicao" id="ficha-posicao"></p>
+        <button class="ficha__fechar" id="ficha-fechar" type="button" data-fechar-ficha>
+          <span>fechar</span>
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+
+      <div class="ficha__corpo" id="ficha-corpo"><!-- gerado por js/galeria.js --></div>
+
+      <div class="ficha__navegacao">
+        <button class="botao botao--texto" type="button" id="ficha-anterior">← Obra anterior</button>
+        <button class="botao botao--texto" type="button" id="ficha-proxima">Próxima obra →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================== IMAGEM AMPLIADA ======================= -->
+  <div class="lupa" id="lupa" hidden data-fechar-lupa>
+    <button class="lupa__fechar" id="lupa-fechar" type="button" data-fechar-lupa>fechar ✕</button>
+    <img id="lupa-imagem" src="" alt="">
+  </div>
+
+  <script src="./data/obras.js"></script>
+  <script src="./data/periodos.js"></script>
+  <script src="./data/referencias.js"></script>
+  <script src="./js/comum.js"></script>
+  <script src="./js/paginas.js"></script>
+  <script src="./js/galeria.js"></script>
+</body>
+</html>

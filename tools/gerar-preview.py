@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
 """
-Gera uma versão de página única do site, para compartilhar como preview.
+Gera uma cópia portátil do site, com tudo embutido em cada arquivo.
 
-O arquivo resultante embute folha de estilo, dados, script, fontes e imagens
-em um único HTML, sem nenhuma requisição externa. Serve para enviar por e-mail,
-hospedar em qualquer lugar ou abrir sem servidor local.
+Cada página vira um HTML autônomo — estilo, dados, scripts, fontes e imagens
+como data URIs, sem nenhuma requisição externa. Os links entre as páginas
+continuam funcionando, então a pasta gerada é uma cópia navegável do site que
+pode ser compactada, enviada por e-mail ou hospedada em qualquer lugar.
 
-    python3 tools/gerar-preview.py [destino.html]
+    python3 tools/gerar-preview.py
+    python3 tools/gerar-preview.py --pagina galeria.html   # uma página avulsa
+    python3 tools/gerar-preview.py --destino /caminho/
 
-Padrão: preview/amamentacao-e-arte.html
+Padrão: preview/
 
-Este arquivo é DERIVADO. Nunca edite o resultado: altere o projeto e gere de
-novo. O site de trabalho continua sendo o index.html com arquivos separados.
+Os arquivos gerados são DERIVADOS. Nunca os edite: altere o projeto e gere de
+novo. O site de trabalho continua sendo o conjunto de arquivos separados.
+
+As reproduções são reduzidas apenas na cópia; os originais não são tocados.
 """
 
+import argparse
 import base64
 import pathlib
 import re
@@ -21,13 +27,13 @@ import sys
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 
-SCRIPTS = [
-    'data/obras.js',
-    'data/movimentos.js',
-    'data/timeline.js',
-    'data/referencias.js',
-    'script.js',
-]
+PAGINAS = ['index.html', 'medicina.html', 'historia.html', 'galeria.html', 'sobre.html']
+
+# 900 px cobrem com folga o card (≈420 px) e a ficha ampliada (≈520 px).
+LARGURA_PREVIEW = 900
+QUALIDADE_PREVIEW = 72
+
+_cache_imagens = {}
 
 
 def ler(caminho):
@@ -39,45 +45,9 @@ def como_data_uri(caminho, mime):
     return 'data:%s;base64,%s' % (mime, base64.b64encode(dados).decode('ascii'))
 
 
-def embutir_fontes(css):
-    """Converte os @font-face locais em data URIs.
-
-    Os subconjuntos latin-ext são descartados: o subconjunto latin já cobre
-    todos os caracteres do português e o preview fica na metade do tamanho.
-    """
-    blocos = re.split(r'(?=@font-face)', css)
-    saida = []
-    for bloco in blocos:
-        if '@font-face' not in bloco:
-            saida.append(bloco)
-            continue
-        if 'latin-ext' in bloco:
-            # remove o bloco, preservando o que vier depois dele
-            fim = bloco.index('}') + 1
-            saida.append(bloco[fim:])
-            continue
-        bloco = re.sub(
-            r"url\('\./(assets/fonts/[^']+)'\)",
-            lambda m: "url('%s')" % como_data_uri(m.group(1), 'font/woff2'),
-            bloco,
-        )
-        saida.append(bloco)
-    return ''.join(saida)
-
-
-# O preview é uma via de leitura e apresentação: 900 px cobrem com folga o card
-# (≈520 px) e a ficha ampliada (≈500 px). Os arquivos do site seguem intactos,
-# em resolução plena.
-LARGURA_PREVIEW = 900
-QUALIDADE_PREVIEW = 72
-
-
 def jpeg_reduzido(caminho):
-    """Reduz a reprodução apenas para o preview. O original não é tocado.
-
-    Usa PyMuPDF quando disponível. Sem ele, embute o arquivo como está — o
-    preview apenas fica maior.
-    """
+    """Reduz a reprodução apenas para a cópia. Requer PyMuPDF; sem ele, embute
+    o arquivo como está e a cópia apenas fica maior."""
     try:
         import fitz
     except ImportError:
@@ -93,48 +63,86 @@ def jpeg_reduzido(caminho):
 
 
 def embutir_imagens(texto):
-    """Troca os caminhos de assets/ por data URIs, no HTML e nos dados."""
     def trocar(m):
         caminho = m.group(1)
+        if caminho in _cache_imagens:
+            return _cache_imagens[caminho]
         if caminho.endswith('.svg'):
-            return como_data_uri(caminho, 'image/svg+xml')
-        reduzido = jpeg_reduzido(caminho)
-        return reduzido or como_data_uri(caminho, 'image/jpeg')
+            uri = como_data_uri(caminho, 'image/svg+xml')
+        else:
+            uri = jpeg_reduzido(caminho) or como_data_uri(caminho, 'image/jpeg')
+        _cache_imagens[caminho] = uri
+        return uri
 
     return re.sub(
-        r"\./(assets/(?:obras|images|logos)/[\w\-.]+\.(?:svg|jpg|jpeg|png))",
-        trocar,
-        texto,
-    )
+        r"\./(assets/(?:obras(?:/thumbs)?|logos)/[\w\-.]+\.(?:svg|jpg|jpeg|png))",
+        trocar, texto)
 
 
-def corpo_do_html(html):
-    """Extrai o conteúdo de <body>, sem as tags <script src>.
+def embutir_fontes(css):
+    """Converte os @font-face locais em data URIs."""
+    return re.sub(
+        r"url\('\./(assets/fonts/[^']+)'\)",
+        lambda m: "url('%s')" % como_data_uri(m.group(1), 'font/woff2'),
+        css)
 
-    O anfitrião do preview fornece o esqueleto <html>/<head>/<body>.
-    """
-    corpo = html.split('<body>', 1)[1].rsplit('</body>', 1)[0]
-    return re.sub(r'\s*<script src="[^"]+"></script>', '', corpo).strip()
+
+def montar_pagina(nome, avulsa=False):
+    html = ler(nome)
+
+    # Substitui a folha de estilo e os scripts por conteúdo embutido.
+    css = embutir_fontes(ler('styles.css'))
+    html = html.replace(
+        '<link rel="stylesheet" href="./styles.css">',
+        '<style>\n%s\n</style>' % css)
+
+    # Fontes já estão embutidas: o preload externo deixa de fazer sentido.
+    html = re.sub(r'\s*<link rel="preload" href="\./assets/fonts/[^>]+>', '', html)
+
+    def inserir_script(m):
+        return '<script>\n%s\n</script>' % ler(m.group(1))
+
+    html = re.sub(r'<script src="\./([^"]+)"></script>', inserir_script, html)
+    html = embutir_imagens(html)
+
+    if avulsa:
+        # Página fora do conjunto: a navegação entre páginas não teria destino.
+        html = re.sub(
+            r'<nav class="menu" id="menu".*?</nav>',
+            '<p class="marca__linha">página avulsa — o site completo tem cinco páginas</p>',
+            html, flags=re.S)
+        html = re.sub(r'<nav class="rodape__nav".*?</nav>', '', html, flags=re.S)
+        html = re.sub(r'<button class="menu-botao".*?</button>', '', html, flags=re.S)
+
+    return html
 
 
 def main():
-    destino = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else RAIZ / 'preview' / 'amamentacao-e-arte.html'
-    destino.parent.mkdir(parents=True, exist_ok=True)
+    ap = argparse.ArgumentParser(description='Gera uma cópia portátil do site.')
+    ap.add_argument('--destino', default=str(RAIZ / 'preview'), help='pasta de saída')
+    ap.add_argument('--pagina', help='gera apenas esta página, sem navegação entre páginas')
+    args = ap.parse_args()
 
-    css = embutir_fontes(ler('styles.css'))
-    corpo = embutir_imagens(corpo_do_html(ler('index.html')))
-    js = embutir_imagens('\n\n'.join(ler(caminho) for caminho in SCRIPTS))
+    destino = pathlib.Path(args.destino)
 
-    partes = [
-        '<title>Amamentação e Arte — Acervo Digital Educativo</title>',
-        '<style>\n%s\n</style>' % css,
-        corpo,
-        '<script>\n%s\n</script>' % js,
-    ]
-    destino.write_text('\n\n'.join(partes) + '\n', encoding='utf-8')
+    if args.pagina:
+        if args.pagina not in PAGINAS:
+            sys.exit('página desconhecida: %s (esperado: %s)' % (args.pagina, ', '.join(PAGINAS)))
+        alvo = destino if destino.suffix == '.html' else destino / args.pagina
+        alvo.parent.mkdir(parents=True, exist_ok=True)
+        alvo.write_text(montar_pagina(args.pagina, avulsa=True), encoding='utf-8')
+        print('%s (%.0f KB)' % (alvo, alvo.stat().st_size / 1024))
+        return
 
-    tamanho = destino.stat().st_size / 1024
-    print('%s (%.0f KB)' % (destino, tamanho))
+    destino.mkdir(parents=True, exist_ok=True)
+    total = 0
+    for nome in PAGINAS:
+        caminho = destino / nome
+        caminho.write_text(montar_pagina(nome), encoding='utf-8')
+        tamanho = caminho.stat().st_size / 1024
+        total += tamanho
+        print('%-16s %6.0f KB' % (nome, tamanho))
+    print('\n%d páginas em %s (%.1f MB no total)' % (len(PAGINAS), destino, total / 1024))
 
 
 if __name__ == '__main__':

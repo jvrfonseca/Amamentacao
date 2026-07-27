@@ -1,16 +1,16 @@
 /**
  * Referências bibliográficas e documentais — Amamentação e Arte
  *
- * As obras e os eventos da linha do tempo apontam para os `id` desta lista.
+ * As obras apontam para os `id` desta lista.
  * A estrutura está preparada para receber a normalização acadêmica que a
  * instituição vier a adotar (ABNT, Vancouver, APA). Nenhum padrão foi imposto.
  *
  * `estado`: "verificada" (conferida na fonte) | "em-levantamento" (a completar).
  */
 
-window.AcervoData = window.AcervoData || {};
+window.Acervo = window.Acervo || {};
 
-window.AcervoData.referencias = [
+window.Acervo.referencias = [
   {
     id: 'ref-fildes-1986',
     autor: 'FILDES, Valerie',
