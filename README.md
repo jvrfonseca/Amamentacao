@@ -88,14 +88,16 @@ python3 tools/gerar-preview.py
 
 Gera a pasta `preview/` com as cinco páginas, cada uma autônoma: estilo, dados,
 fontes e imagens embutidos, sem nenhuma requisição externa. Os links entre as
-páginas continuam funcionando, então a pasta é uma cópia navegável do site —
-serve para compactar, enviar por e-mail ou apresentar sem internet.
+páginas continuam funcionando, então a pasta é uma cópia navegável do site.
 
 ```bash
-python3 tools/gerar-preview.py --pagina galeria.html
+python3 tools/gerar-preview.py --unico     # as cinco páginas em um arquivo só
+python3 tools/gerar-preview.py --pagina galeria.html   # uma página avulsa
 ```
 
-Gera uma página avulsa, sem a navegação entre páginas.
+O modo `--unico` produz um HTML único e navegável: cada página vira um `<main>`
+e a troca é feita no próprio navegador, por um roteador que só existe nessa
+cópia. Serve para quando é preciso entregar **um endereço** em vez de uma pasta.
 
 Os arquivos de `preview/` são **derivados**: nunca os edite. Altere o projeto e
 gere de novo.

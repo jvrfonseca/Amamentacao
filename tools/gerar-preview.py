@@ -9,9 +9,14 @@ pode ser compactada, enviada por e-mail ou hospedada em qualquer lugar.
 
     python3 tools/gerar-preview.py
     python3 tools/gerar-preview.py --pagina galeria.html   # uma página avulsa
+    python3 tools/gerar-preview.py --unico                 # as cinco em um arquivo
     python3 tools/gerar-preview.py --destino /caminho/
 
 Padrão: preview/
+
+O modo --unico reúne as cinco páginas em um HTML só, navegável: cada página vira
+um <main> e a troca é feita no próprio navegador. Serve para quando é preciso
+entregar um endereço único em vez de uma pasta.
 
 Os arquivos gerados são DERIVADOS. Nunca os edite: altere o projeto e gere de
 novo. O site de trabalho continua sendo o conjunto de arquivos separados.
@@ -21,6 +26,7 @@ As reproduções são reduzidas apenas na cópia; os originais não são tocados
 
 import argparse
 import base64
+import json
 import pathlib
 import re
 import sys
@@ -117,13 +123,218 @@ def montar_pagina(nome, avulsa=False):
     return html
 
 
+# Ordem de carregamento: dados, núcleo compartilhado, páginas, galeria.
+SCRIPTS = [
+    'data/obras.js', 'data/periodos.js', 'data/marcos.js', 'data/referencias.js',
+    'js/comum.js', 'js/paginas.js', 'js/galeria.js',
+]
+
+# Nome curto de cada página no endereço do arquivo único.
+ROTAS = {
+    'index.html': 'inicio',
+    'medicina.html': 'medicina',
+    'historia.html': 'historia',
+    'galeria.html': 'galeria',
+    'sobre.html': 'sobre',
+}
+
+ROTEADOR = """
+/* ------------------------------------------------------------------ *
+ * Roteador do arquivo único.
+ *
+ * Só existe nesta cópia: no site as páginas são arquivos separados e o
+ * navegador faz a navegação sozinho. Aqui as cinco convivem no mesmo
+ * documento e a troca é feita trocando qual <main> está visível.
+ * ------------------------------------------------------------------ */
+(function () {
+  'use strict';
+
+  var ROTAS = __ROTAS__;
+  var TITULOS = __TITULOS__;
+  var PAGINAS = Object.keys(ROTAS);
+
+  var mains = {};
+  PAGINAS.forEach(function (nome) {
+    mains[nome] = document.querySelector('main[data-pagina="' + nome + '"]');
+  });
+
+  var atual = 'index.html';
+
+  function porRota(rota) {
+    for (var i = 0; i < PAGINAS.length; i++) {
+      if (ROTAS[PAGINAS[i]] === rota) return PAGINAS[i];
+    }
+    return null;
+  }
+
+  function nomeDoEndereco() {
+    var rota = (window.location.hash || '').replace(/^#\\/?/, '');
+    return porRota(rota) || 'index.html';
+  }
+
+  function marcarMenu(nome) {
+    var links = document.querySelectorAll('.menu__lista a, .rodape__nav a');
+    Array.prototype.forEach.call(links, function (link) {
+      var alvo = (link.getAttribute('href') || '').replace('./', '').split('?')[0];
+      if (alvo === nome) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  function aplicarFiltro(periodo) {
+    var filtro = document.querySelector('.filtro[data-periodo="' + periodo + '"]');
+    if (filtro) filtro.click();
+  }
+
+  function abrirObra(slug) {
+    var card = document.querySelector('#grade [data-obra="' + slug + '"]');
+    if (!card) {
+      // A obra pode estar fora do filtro ativo; limpa e procura de novo.
+      var limpar = document.querySelector('[data-limpar]');
+      if (limpar) limpar.click();
+      card = document.querySelector('#grade [data-obra="' + slug + '"]');
+    }
+    if (card) card.click();
+  }
+
+  function mostrar(nome, opcoes) {
+    opcoes = opcoes || {};
+    if (!mains[nome]) nome = 'index.html';
+
+    PAGINAS.forEach(function (n) { mains[n].hidden = (n !== nome); });
+    atual = nome;
+    document.title = TITULOS[nome];
+    marcarMenu(nome);
+
+    var menu = document.getElementById('menu');
+    var botao = document.getElementById('menu-botao');
+    if (menu && botao) {
+      menu.classList.remove('aberto');
+      botao.setAttribute('aria-expanded', 'false');
+    }
+
+    if (opcoes.periodo) aplicarFiltro(opcoes.periodo);
+    if (opcoes.obra) abrirObra(opcoes.obra);
+    if (!opcoes.manterPosicao) window.scrollTo(0, 0);
+  }
+
+  function irPara(nome, opcoes) {
+    if (window.history && window.history.pushState) {
+      window.history.pushState({}, '', '#' + ROTAS[nome]);
+    }
+    mostrar(nome, opcoes);
+  }
+
+  document.addEventListener('click', function (evento) {
+    if (evento.defaultPrevented || evento.button !== 0) return;
+    if (evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return;
+    if (!evento.target || typeof evento.target.closest !== 'function') return;
+
+    var link = evento.target.closest('a[href]');
+    if (!link) return;
+
+    var partes = (link.getAttribute('href') || '').match(/^\\.\\/([a-z]+\\.html)(?:\\?(.*))?$/);
+    if (!partes || !mains[partes[1]]) return;
+
+    evento.preventDefault();
+    var busca = new URLSearchParams(partes[2] || '');
+    irPara(partes[1], { periodo: busca.get('periodo'), obra: busca.get('obra') });
+  });
+
+  window.addEventListener('popstate', function () {
+    mostrar(nomeDoEndereco(), {});
+  });
+
+  /* Ao fechar, a ficha devolve o título que a página tinha quando carregou —
+     que aqui é o do documento inteiro, não o da galeria. Repõe o correto. */
+  var ficha = document.getElementById('ficha');
+  if (ficha && window.MutationObserver) {
+    new MutationObserver(function () {
+      if (ficha.hidden) document.title = TITULOS[atual];
+    }).observe(ficha, { attributes: true, attributeFilter: ['hidden'] });
+  }
+
+  // Estado inicial: o endereço manda; sem ele, um link de obra abre a galeria.
+  var busca = new URLSearchParams(window.location.search);
+  var inicial = nomeDoEndereco();
+  if (!window.location.hash && (busca.get('obra') || busca.get('periodo'))) {
+    inicial = 'galeria.html';
+  }
+  mostrar(inicial, { manterPosicao: true });
+})();
+"""
+
+
+def _entre(texto, abertura, fechamento):
+    inicio = texto.index(abertura) + len(abertura)
+    return texto[inicio:texto.index(fechamento, inicio)]
+
+
+def montar_arquivo_unico():
+    """Reúne as cinco páginas em um documento navegável."""
+    paginas = {nome: ler(nome) for nome in PAGINAS}
+
+    titulos = {nome: _entre(html, '<title>', '</title>').strip()
+               for nome, html in paginas.items()}
+
+    # Cada página vira um <main>; só um fica visível por vez.
+    corpos = []
+    for nome in PAGINAS:
+        miolo = _entre(paginas[nome], '<main id="conteudo">', '</main>')
+        corpos.append('<main class="pagina" data-pagina="%s"%s>%s</main>'
+                      % (nome, '' if nome == 'index.html' else ' hidden', miolo))
+
+    # A ficha e a lupa da galeria vivem fora do <main> e valem para o documento.
+    extras = _entre(paginas['galeria.html'], '</footer>', '<script')
+
+    html = paginas['index.html']
+    main_original = '<main id="conteudo">%s</main>' % _entre(
+        html, '<main id="conteudo">', '</main>')
+    html = html.replace(
+        main_original,
+        '<div id="conteudo">\n%s\n</div>\n%s' % ('\n'.join(corpos), extras))
+
+    html = html.replace('<title>%s</title>' % titulos['index.html'],
+                        '<title>Amamentação e Arte</title>')
+
+    # Estilo embutido, mais a garantia de que [hidden] vence qualquer display.
+    css = embutir_fontes(ler('styles.css'))
+    css += ('\n\n/* arquivo único: página inativa não ocupa espaço */\n'
+            '[hidden] { display: none !important; }\n')
+    html = html.replace('<link rel="stylesheet" href="./styles.css">',
+                        '<style>\n%s\n</style>' % css)
+    html = re.sub(r'\s*<link rel="preload" href="\./assets/fonts/[^>]+>', '', html)
+
+    # Os scripts da página inicial dão lugar ao conjunto completo.
+    roteador = (ROTEADOR
+                .replace('__ROTAS__', json.dumps(ROTAS, ensure_ascii=False))
+                .replace('__TITULOS__', json.dumps(titulos, ensure_ascii=False)))
+    juntos = '\n'.join('<script>\n%s\n</script>' % ler(c) for c in SCRIPTS)
+    bloco = juntos + '\n<script>\n' + roteador + '\n</script>\n'
+    # lambda: o conteúdo dos scripts tem barras invertidas que re.sub
+    # interpretaria como escapes se fosse passado como texto de substituição.
+    html = re.sub(r'(<script src="\./[^"]+"></script>\s*)+', lambda _: bloco, html)
+
+    return embutir_imagens(html)
+
+
 def main():
     ap = argparse.ArgumentParser(description='Gera uma cópia portátil do site.')
     ap.add_argument('--destino', default=str(RAIZ / 'preview'), help='pasta de saída')
     ap.add_argument('--pagina', help='gera apenas esta página, sem navegação entre páginas')
+    ap.add_argument('--unico', action='store_true',
+                    help='reúne as cinco páginas em um HTML só, navegável')
     args = ap.parse_args()
 
     destino = pathlib.Path(args.destino)
+
+    if args.unico:
+        alvo = destino if destino.suffix == '.html' else destino / 'amamentacao-e-arte.html'
+        alvo.parent.mkdir(parents=True, exist_ok=True)
+        alvo.write_text(montar_arquivo_unico(), encoding='utf-8')
+        print('%s (%.0f KB) — cinco páginas em um arquivo'
+              % (alvo, alvo.stat().st_size / 1024))
+        return
 
     if args.pagina:
         if args.pagina not in PAGINAS:

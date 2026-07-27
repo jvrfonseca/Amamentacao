@@ -290,7 +290,9 @@
      a página, para que o link possa ser copiado e compartilhado. */
   function registrarEndereco(slug) {
     if (!window.history || !window.history.replaceState) return;
-    var url = window.location.pathname + (slug ? '?obra=' + encodeURIComponent(slug) : '');
+    var url = window.location.pathname +
+      (slug ? '?obra=' + encodeURIComponent(slug) : '') +
+      window.location.hash;
     window.history.replaceState({}, '', url);
   }
 
